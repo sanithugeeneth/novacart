@@ -1,0 +1,62 @@
+{
+  "name": "novacart-production-marketplace",
+  "version": "21.9.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/launch-dev.js",
+    "dev": "node --watch server.js",
+    "db:wait": "node scripts/wait-for-db.js",
+    "db:migrate": "node scripts/migrate.js",
+    "db:seed-admin": "node scripts/seed-admin.js",
+    "preflight": "node scripts/preflight.js",
+    "start:container": "node scripts/launch-prod.js --container",
+    "start:prod": "node scripts/launch-prod.js",
+    "launch:check": "node scripts/preflight.js",
+    "smoke": "node scripts/smoke-test.js",
+    "load:test": "node scripts/load-test.js",
+    "backup:verify": "node scripts/verify-backup.js",
+    "v13:check": "npm run security-payment:check",
+    "v14:check": "node scripts/v14-static-check.mjs",
+    "business:check": "npm test",
+    "open": "node scripts/launch-dev.js",
+    "test": "node --test tests/*.test.js",
+    "security-payment:check": "node --test tests/security-payment.test.js",
+    "mfa:setup": "node scripts/setup-mfa.js",
+    "seller-design:check": "node --test tests/seller-design.test.js",
+    "forms:check": "node --test tests/forms.test.js",
+    "payout-catalog:check": "node --test tests/payouts.test.js tests/catalog.test.js",
+    "preview:ui": "node scripts/preview-ui.mjs",
+    "integrations:check": "node --test tests/oauth.test.js tests/visual-search.test.js tests/suppliers.test.js",
+    "setup:production": "node scripts/configure-production.js",
+    "launch:config": "node scripts/preflight.js --env .env.production --config-only",
+    "launch:connections": "node scripts/preflight.js --connections",
+    "seller-fulfillment:check": "node --test tests/seller-fulfillment.test.js",
+    "tracking:check": "node --test tests/customer-tracking.test.js tests/seller-fulfillment.test.js",
+    "payout-refunds:check": "node --test tests/payout-refunds.test.js tests/payouts.test.js tests/refunds.test.js",
+    "seller-dashboard:check": "node --test tests/seller-dashboard.test.js tests/seller-design.test.js tests/forms.test.js",
+    "currency:check": "node --test tests/currency.test.js",
+    "product-pages:check": "node --test tests/product-pages.test.js",
+    "mfa:email": "node scripts/setup-email-otp.js",
+    "email-otp:check": "node --test tests/admin-email-otp.test.js",
+    "supplier-operations:check": "node --test tests/supplier-operations.test.js tests/suppliers.test.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.0.1",
+    "helmet": "^8.1.0",
+    "nodemailer": "^7.0.5",
+    "pg": "^8.16.3",
+    "stripe": "^18.5.0"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.8",
+    "jsdom": "26.1.0"
+  }
+}

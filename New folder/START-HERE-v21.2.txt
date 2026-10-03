@@ -1,0 +1,27 @@
+NovaCart v21.2 — Customer tracking fix
+
+Seller දාපු status, courier සහ tracking number customerට දැන් පෙන්වනවා.
+Sellers කිහිපදෙනෙක් ඉන්න order එකක shipments වෙන වෙනම පෙන්වනවා.
+
+භාවිතය:
+1. Seller center → Recent orders.
+2. Shipment status, Courier සහ Tracking number පුරවා Save shipment ඔබන්න.
+3. Customer → Orders → Tracking.
+4. අලුත් වෙනස්කම් බලන්න Refresh tracking ඔබන්න හෝ page එක reload කරන්න.
+5. Account → Order history → Track order link එකත් භාවිත කළ හැකියි.
+
+Local preview (Node.js 22+):
+   npm run preview:ui
+   PowerShell එකේ npm.ps1 error එකක් තිබුණොත්: npm.cmd run preview:ui
+   Preview එකට Docker අවශ්‍ය නැහැ. මෙය sample data; real payments/emails යවන්නේ නැහැ.
+   Preview accounts/password terminal එකේ පෙන්වනවා. Customer එකෙන් COD sample order එකක්
+   දාලා Seller එකෙන් tracking update කර flow එක බලන්න පුළුවන්.
+
+Tests:
+   npm run tracking:check
+   npm test
+
+අලුත් database migration එකක් අවශ්‍ය නැහැ. Live update එකකට server සහ frontend files
+දෙකම update කර app එක restart කරන්න. Existing database/private settings තබාගන්න.
+විස්තර: CUSTOMER-TRACKING-v21.2.md සහ DEPLOYMENT-v20.1.md
+මේ ZIP එක live hosting එකකට deploy කරලා නැහැ.

@@ -1,0 +1,32 @@
+NovaCart v21.6 — Full Product Pages for Sitemap URLs
+
+/p/... link එකෙන් දැන් සම්පූර්ණ අලුත් product design එක open වෙනවා.
+“View full product” කියලා අමතර click එකක් අවශ්‍ය නැහැ.
+
+ඇතුළත්:
+- Product images/gallery, price, description, variants, stock සහ specifications.
+- Quantity, wishlist, Add to cart සහ Buy now controls එකම page එකේ.
+- Approved reviews, delivery information සහ related products.
+- Title/description, canonical URL, Open Graph සහ product structured data.
+- JavaScript නැතිව වුණත් styled product details HTML එකේ පෙන්වනවා.
+  Purchase controls සඳහා JavaScript අවශ්‍යයි.
+- පරණ /product.html?id=... links අලුත් /p/... page එකට auto redirect වෙනවා.
+
+Upgrade:
+1. Database backup කර app එක නවත්වන්න; private settings තබාගන්න.
+2. Source සහ static files එකට update කරන්න. services/product-pages.js,
+   product.html, product.js සහ forma-ui.css ඇතුළු සියලු files දාන්න.
+3. PUBLIC_BASE_URL ඔබේ සැබෑ website URL එක බව තහවුරු කරන්න.
+4. App restart කර browser එක Ctrl+F5 මගින් refresh කරන්න.
+No new database migration after v21.3. Older upgrades need the cumulative migration.
+
+Local sample preview:
+    npm.cmd run preview:ui
+Terminal එකේ URL එකෙන් /p/preview-001 open කරන්න.
+
+Tests: 145 passed. Browser checks: 10 passed.
+    npm run product-pages:check
+    npm test
+Browser screenshots/report: preview/product-pages/
+වැඩි විස්තර: PRODUCT-PAGES-v21.6.md
+මෙය live deploy හෝ Google indexing තහවුරු කිරීමක් නොවේ.

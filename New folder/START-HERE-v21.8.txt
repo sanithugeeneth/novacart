@@ -1,0 +1,50 @@
+NovaCart v21.8 — Supplier Operations + Admin Email OTP
+
+මෙම update එකේ:
+- Supplier tracking/status sync -> customer order tracking.
+- Amazon MCF cancellation request + later outcome confirmation.
+- AliExpress DS supplier payment/status/tracking query.
+- Scheduled tracking/stock refresh (opt-in).
+- Provider product-read compatibility check in Supplier workspace.
+- Admin email OTP login (SMTP setup required).
+
+සම්පූර්ණයෙන් autonomous supplier purchasing/payment මෙයින් ලැබෙන්නේ නැහැ.
+Amazon MCF තමන්ගේ Amazon fulfillment inventory සඳහායි.
+AliExpress supplier payment සහ buyer cancellation provider account එකෙන් කළ යුතුයි.
+Live account/API compatibility, supplier charges සහ real email delivery මෙහි test කර නැහැ.
+
+UPGRADE
+1. Server එක නවත්වලා database backup එකක් තබාගන්න.
+2. ඔබේ private .env/config සහ database තබාගෙන source/static files එකට update කරන්න.
+3. Project folder එකේ:
+       npm.cmd run db:migrate
+   New supplier columns සහ admin_email_challenges table අවශ්‍යයි.
+4. Provider credentials තිබේ නම් .env එකේ:
+       SUPPLIER_AUTO_SYNC=true
+   Server restart කළ පසු known shipments විනාඩි 5කට වරක් refresh වෙනවා;
+   stock පැය 6කට වරක් refresh වෙනවා. Batch limit නිසා backlog තිබේ නම් ප්‍රමාද වෙයි.
+   Orders place කිරීම/payment/cancellation automatically trigger කරන්නේ නැහැ.
+5. npm.cmd start
+6. Admin login -> Suppliers. Product ID/SKU/country යොදා Check product read access.
+   මෙය product read permission පමණක් verify කරයි.
+7. Shipment ledger: Sync status, Cancellation, provider account link.
+   Amazon request accepted යන්න final cancellation confirmation එකක් නොවේ.
+   Customer refund එක අවශ්‍ය නම් වෙනම refund workflow එක භාවිත කරන්න.
+
+ADMIN EMAIL OTP
+.env එකේ SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, MAIL_FROM පුරවන්න.
+Existing ADMIN_EMAIL / ADMIN_PASSWORD / DATABASE_URL settings තබාගන්න.
+Server නවතා:
+    npm.cmd run mfa:email
+    npm.cmd start
+mfa:email SMTP authentication check කර email mode enable කරයි.
+/admin.html open කර Ctrl+F5 -> email/password -> Send email code -> email code.
+Code valid 10 minutes, single-use, 5 wrong attempts maximum, resend after 60s.
+Details: EMAIL-OTP-SETUP.md. Secrets කිසිවෙකුට share කරන්න එපා.
+Existing authenticator mode automatically වෙනස් කරන්නේ නැහැ.
+Hosted deployment: update Environment/Secrets, migrate, restart all instances.
+preview:ui is sample-only; real supplier/SMTP actions are not part of that preview.
+
+Validation: 161 regression tests passed, 8 Chromium browser checks passed.
+Tests use isolated PGlite and captured provider/SMTP responses, not live accounts.
+More detail: SUPPLIER-OPERATIONS-v21.8.md

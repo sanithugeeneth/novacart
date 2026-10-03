@@ -1,0 +1,59 @@
+{
+  "result": "passed",
+  "browser": "131.0.6778.0",
+  "date": "2026-09-28T11:43:36.527Z",
+  "results": [
+    {
+      "currency": "LKR",
+      "foreignCurrency": "USD",
+      "admin": "Overview, orders/drawer, products/editor/variants, customers, payouts, coupons and analytics verified.",
+      "seller": "Catalogue, editor/variants, orders, payout summary/history verified.",
+      "configFailure": "No invented USD fallback.",
+      "dimensions": [
+        {
+          "width": 320,
+          "overflow": 0
+        },
+        {
+          "width": 390,
+          "overflow": 0
+        },
+        {
+          "width": 768,
+          "overflow": 0
+        },
+        {
+          "width": 1440,
+          "overflow": 0
+        }
+      ]
+    },
+    {
+      "currency": "USD",
+      "foreignCurrency": "EUR",
+      "admin": "Overview, orders/drawer, products/editor/variants, customers, payouts, coupons and analytics verified.",
+      "seller": "Catalogue, editor/variants, orders, payout summary/history verified.",
+      "configFailure": "No invented USD fallback.",
+      "dimensions": [
+        {
+          "width": 320,
+          "overflow": 0
+        },
+        {
+          "width": 390,
+          "overflow": 0
+        },
+        {
+          "width": 768,
+          "overflow": 0
+        },
+        {
+          "width": 1440,
+          "overflow": 0
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "scope": "Local sample data, simulated paid order, no provider charges or transfers."
+}

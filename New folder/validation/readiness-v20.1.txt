@@ -1,0 +1,15 @@
+✔ production setup uses unique secrets, restrictive permissions, literal values and never overwrites credentials (9.311437ms)
+✔ configured test mode never claims live verification and partial enabled integrations fail the check without leaking secrets (4.307524ms)
+✔ configuration CLI works without database/provider access, returns failures and redacts private values (942.64002ms)
+✔ readiness is admin-only, never exposes secrets, and private deployment files are not publicly served (7607.534655ms)
+NovaCart v20.1 running at https://shop.local.test
+✔ production startup validates its injected configuration and does not create demo inventory (6210.746802ms)
+✔ SMTP transport enforces TLS and finite connection and delivery timeouts (1.354697ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15474.04059

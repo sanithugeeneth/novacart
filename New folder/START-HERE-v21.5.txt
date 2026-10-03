@@ -1,0 +1,34 @@
+NovaCart v21.5 — Admin / Seller Currency Fix
+
+Store එක LKR කළත් admin/seller screens වල $ පෙන්වන ගැටලුව fix කර ඇත.
+මුදල් දැන් currency code එක සමග පෙන්වනවා: LKR 1,250.00 / USD 1,250.00.
+
+- Admin revenue/charts, products/variants, orders/refunds, customers, coupons,
+  returns සහ payouts වල නිවැරදි currency පෙන්වනවා.
+- Seller catalogue/editor, orders සහ payout balances/history ඒ අනුව පෙන්වනවා.
+- පැරණි USD order එක USD ලෙසම පෙන්වනවා. LKR කියලා නැවත label කරන්නේ නැහැ.
+- Current-currency totals වලට වෙනත් currency මුදල් එකතු කරන්නේ නැහැ.
+- මේක exchange-rate conversion එකක් නොවේ. Product price අගයන් වෙනස් කර නැහැ.
+
+Upgrade:
+1. Existing database backup කර පැරණි app එක නවත්වන්න.
+2. Source/static files එකට update කරන්න; workspace-money.js ද ඇතුළත් කරන්න.
+3. Existing private settings සහ database තබාගන්න.
+4. LKR store එකක් නම් production environment/.env හි CURRENCY=LKR තබන්න.
+5. App restart කර admin/seller pages Ctrl+F5 මගින් refresh කරන්න.
+No new database migration since v21.3. Older upgrades still need npm run db:migrate.
+
+Docker නැතුව LKR sample dashboard (Windows PowerShell / Node.js 22+):
+    $env:CURRENCY="LKR"
+    npm.cmd run preview:ui
+Terminal එකේ local URL එක ලබාදෙනවා.
+    /seller.html — alpha@local.test
+    /admin.html  — orphan@local.test
+    Preview password: SellerFixture123!
+මෙය temporary sample database එකක්. Real payments/transfers යවන්නේ නැහැ.
+
+Tests: 137 passed. LKR/USD browser checks passed.
+    npm run currency:check
+    npm test
+වැඩි විස්තර: CURRENCY-FIX-v21.5.md
+මෙම ZIP එක live deploy කරලා නැහැ.

@@ -1,0 +1,88 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> novacart-production-marketplace@20.0.0 test
+> node --test tests/*.test.js
+
+✔ admin workspace restores a server-approved session, renders charts and waits for media clicks (6201.902561ms)
+✔ anonymous and customer sessions never enter the admin workspace (112.692295ms)
+✔ API pagination reaches every active product with stable ordering and rejects bad pages (6261.767493ms)
+✔ the actual Load more button fetches beyond 48 and stops only at the end of the catalog (1341.953245ms)
+✔ search, brand and keyword matches include products outside the initial page (991.265322ms)
+✔ category pills and sorting use the full catalog, including a category absent from page one (114.359668ms)
+✔ a late old search response cannot replace the newer search or unlock its loading state (97.608634ms)
+✔ a failed next-page request keeps products and retries that same page (133.156258ms)
+✔ saved cart and wishlist products beyond page one retain their details across searches (468.596018ms)
+✔ support form sends JSON and CSRF, saves its message and refreshes the ticket list (6225.400771ms)
+✔ support form accepts a real order reference and the ticket stays private to its owner (121.292469ms)
+✔ seller application sends all fields as JSON and saves a pending profile once (36.214988ms)
+✔ both forms retain entered data and display errors for missing required fields (60.729036ms)
+✔ both form submissions still enforce authentication and CSRF (56.809503ms)
+✔ OAuth hides unconfigured providers and replaces placeholder endpoints with 503 (5910.922171ms)
+✔ Google uses PKCE, creates a verified account and binds a one-use state to its browser (2093.181624ms)
+✔ OAuth rejects wrong issuer, audience, nonce, expiry and invalid signatures (1791.935246ms)
+✔ existing emails require explicit linking; links require CSRF and cannot target admin accounts (1357.757032ms)
+✔ Apple signs its client secret and accepts a browser-bound form_post callback (1769.45706ms)
+✔ expired OAuth transactions and revoked linking sessions cannot sign in or connect an account (1407.514159ms)
+✔ payout eligibility excludes unpaid, failed, cancelled, refunded and uncollected COD orders (6015.3947ms)
+✔ repeat and concurrent requests return one payout, and overlapping ranges cannot reuse orders (91.360057ms)
+✔ discounted mixed orders allocate cents once across sellers and exclude platform shipping/tax (46.164662ms)
+✔ a one-cent discount is allocated exactly once across seller balances (49.12242ms)
+✔ pending refunds and open returns are withheld, and refunds invalidate an unpaid snapshot (51.867179ms)
+✔ failed payouts retain their allocations, can be retried, and paid payouts cannot reopen (118.660512ms)
+✔ COD needs an admin collection receipt before inclusion in a payout (62.881104ms)
+✔ bad dates, unauthenticated requests and invalid CSRF cannot generate payouts (29.398225ms)
+✔ legacy duplicates survive migration but overlapping historical amounts cannot be paid again (62.375409ms)
+✔ customer login cannot create an admin session even with a valid admin password (6013.099838ms)
+✔ missing and malformed OTPs reject admin login (31.50256ms)
+✔ valid password and current OTP create an MFA-verified admin session (29.54074ms)
+✔ legacy password-only admin sessions fail closed when MFA is required (7.661954ms)
+✔ customers cannot access administrator APIs (8.135385ms)
+✔ missing MFA secret rejects admin login instead of bypassing verification (9.897737ms)
+✔ valid raw Stripe signature confirms payment and exposes paid status to the customer (52.110865ms)
+✔ forged Stripe signature cannot update an order (19.742954ms)
+✔ duplicate signed events do not duplicate emails, points or paid history (46.730158ms)
+Payment notification failed b3361983-d9b7-4220-a42e-8785c222418b Payment details do not match the order.
+Payment notification failed c030e9ae-2c4a-4d84-899e-e35fe12fcf4d Payment details do not match the order.
+Payment notification failed 3fba2ea7-a0c0-44fc-8b62-7ff5c8e5ddc0 Payment details do not match the order.
+✔ wrong payment amount, currency or reference cannot mark an order paid (117.415925ms)
+✔ coupon checkout total exactly matches the amount verified in the webhook (31.568619ms)
+✔ a declined card can be retried successfully without releasing reserved stock (42.807348ms)
+✔ an unpaid completion waits for async payment success (49.443233ms)
+✔ late notification recovery confirms a provider-paid order before releasing inventory (37.846682ms)
+Payment reconciliation needs retry NC-MU8CLD7W-755C2A Simulated provider outage
+✔ unpaid expiry releases stock once, while a provider outage preserves the reservation (47.190145ms)
+✔ approved sellers use their existing login cookie for every seller read endpoint (6348.824921ms)
+✔ anonymous, invalid, revoked and expired sessions cannot access seller data (23.954437ms)
+✔ customers and pending, rejected or suspended sellers are denied with 403 (74.776374ms)
+✔ seller product create/edit requires CSRF and enforces user ownership (32.278337ms)
+✔ public seller catalogs resolve products using the owner user ID (13.221034ms)
+✔ mixed COD checkout assigns seller profiles and keeps order-item owner IDs (66.597082ms)
+✔ seller orders accept their owner updates and reject another seller or missing CSRF (28.564832ms)
+✔ seller card checkout still confirms payment through a signed Stripe webhook (28.693505ms)
+✔ unavailable or missing seller profiles reject checkout and roll back order and inventory (44.584275ms)
+✔ signature CSS and JS are served with correct MIME types and exact content (11.098703ms)
+✔ customer pages reference the signature assets and allow their Google Fonts stylesheet (16.63584ms)
+✔ serving signature assets does not expose server files or dependency sources (13.299302ms)
+✔ supplier operations require administrator authorization and CSRF; config never exposes provider secrets (2387.903544ms)
+✔ Amazon import and stock sync preserve retail price, original mappings and local reservations (1832.142162ms)
+✔ supplier checkout rejects COD, stale stock and unsupported destination before creating an order (1628.889306ms)
+✔ unpaid orders cannot forward; a paid order is reviewed and submitted exactly once, including concurrent clicks (1639.41743ms)
+✔ changed addresses, expired previews and refunds invalidate fulfillment approval (1434.068203ms)
+✔ unknown Amazon acceptance is locked and reconciled by its stable provider reference without another POST (1604.035631ms)
+✔ AliExpress uses signed product and order requests, exact SKU attributes and separate supplier-payment status (1647.562504ms)
+✔ AliExpress currency mismatches reject import and unknown acceptance never retries automatically (1615.136097ms)
+✔ AliExpress TOP mode uses its documented HMAC protocol and newly imported products can stay drafts (1325.961546ms)
+✔ manual supplier resolution requires a settled request, provider-check confirmation and recorded evidence (1618.242119ms)
+✔ a provider-confirmed rejection requires a new preview and retains a durable resolution audit (1381.341229ms)
+✔ visual search analyzes uploaded image bytes, searches the entire catalogue and stores no image (2244.440804ms)
+✔ visual search rejects remote URLs, malformed images, missing consent and authenticated CSRF failures before provider billing (1738.963784ms)
+✔ visual search has a persistent daily budget and never invents matches on provider failure (1580.973695ms)
+✔ visual search exposes capability only when configured and accepts a normal photo over the former 200KB JSON limit (2839.710056ms)
+ℹ tests 71
+ℹ suites 0
+ℹ pass 71
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 25272.579354

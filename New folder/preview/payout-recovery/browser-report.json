@@ -1,0 +1,31 @@
+{
+  "result": "passed",
+  "date": "2026-09-27T14:32:31.784Z",
+  "browser": "131.0.6778.0",
+  "checks": [
+    "Seller refreshes confirmed refunds and generates an adjusted payout through the browser.",
+    "Admin reconciles a later refund and reviews updated net transfer and source-order recovery.",
+    "Admin records the sample transfer after reconciliation.",
+    "Seller sees recovered and carried balances; payout panel fits 320/390/768/1440px."
+  ],
+  "dimensions": [
+    {
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "width": 1440,
+      "overflow": 0
+    }
+  ],
+  "errors": [],
+  "scope": "Local sample database and mocked refund provider; no external transfers."
+}

@@ -1,0 +1,20 @@
+✔ approved sellers use their existing login cookie for every seller read endpoint (1840.101213ms)
+✔ anonymous, invalid, revoked and expired sessions cannot access seller data (22.210284ms)
+✔ customers and pending, rejected or suspended sellers are denied with 403 (68.273657ms)
+✔ seller product create/edit requires CSRF and enforces user ownership (43.182922ms)
+✔ public seller catalogs resolve products using the owner user ID (9.98076ms)
+✔ mixed COD checkout assigns seller profiles and keeps order-item owner IDs (43.479336ms)
+✔ seller orders accept their owner updates and reject another seller or missing CSRF (28.473299ms)
+✔ seller card checkout still confirms payment through a signed Stripe webhook (29.987798ms)
+✔ unavailable or missing seller profiles reject checkout and roll back order and inventory (48.402927ms)
+✔ signature CSS and JS are served with correct MIME types and exact content (10.116301ms)
+✔ customer pages reference the signature assets and allow their Google Fonts stylesheet (15.379489ms)
+✔ serving signature assets does not expose server files or dependency sources (9.227647ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2417.297353

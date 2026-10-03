@@ -1,0 +1,60 @@
+NOVACART 20.0 — ATELIER UI + PROVIDER INTEGRATIONS
+=========================
+
+අලුත් UI එක ඉක්මනින් බලන්න / Quick design preview
+------------------------------------------------
+1. ZIP එක extract කරන්න. Node.js 20 හෝ ඊට අලුත් version එකක් අවශ්‍යයි.
+2. Project folder එකේ terminal / PowerShell open කරන්න.
+3. Run: npm run preview:ui
+4. Terminal එකේ පෙන්වන http://127.0.0.1:... address එක browser එකෙන් open කරන්න.
+
+This preview uses an isolated in-memory database. It does not need Docker,
+PostgreSQL setup, payment keys or an email provider. Products and accounts are
+sample data. No real charges or emails are sent. Data resets when you stop it.
+Use Cash on delivery to try a sample checkout.
+
+Preview accounts (only created by preview:ui, never by normal npm start):
+  Customer: buyer@local.test
+  Seller:   alpha@local.test
+  Admin:    orphan@local.test — use the Admin sign-in tab
+  Password: SellerFixture123!
+
+If dependencies are missing, run npm ci first (include dev dependencies for preview).
+Press Ctrl+C to stop the preview.
+
+Use your existing store / Update installation
+--------------------------------------------
+This release includes all v19.1–v19.4 security, payment, seller, forms, payout
+and catalogue corrections. Preserve your own environment configuration and
+existing database. New OAuth/supplier tables and an order-item supplier snapshot
+are added by this combined release. Run the database migration before starting.
+
+After extracting the new release into its own folder, use your existing database
+configuration, then run:
+  npm run db:migrate
+  npm start
+
+The migration is idempotent and is required when upgrading from versions that
+predate this v20.0 integration release. Keep the full assets directory beside server.js.
+Open the app through its server URL, not by double-clicking index.html.
+Hard-refresh your browser once after updating (Ctrl+F5).
+
+Preview screenshots: preview/ directory
+Change notes: DESIGN-v20.0.md
+Validation: VALIDATION-v20.0.md
+
+The UI was tested locally. This package does not deploy the store or configure
+live Stripe, SMTP, hosting, domain or production PostgreSQL services.
+
+අලුත් integrations / Provider setup
+----------------------------------
+Google/Apple login, photo search, supplier product sync සහ order forwarding
+code එක ඇතුළත්. Live භාවිතයට API keys + provider approval අවශ්‍යයි.
+INTEGRATIONS-v20.0.md එකේ setup සහ තවම live verify නොකළ තැන් දක්වා තිබෙනවා.
+
+Amazon forwarding = your own MCF inventory.
+AliExpress API access/version must match your approved account; order creation
+does not pay the supplier. No live supplier or OAuth account was tested here.
+
+Supplier workspace: Admin sidebar -> Suppliers
+Run provider regression tests: npm run integrations:check

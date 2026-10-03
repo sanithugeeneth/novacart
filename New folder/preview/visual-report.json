@@ -1,0 +1,77 @@
+{
+  "browser": "131.0.6778.0",
+  "report": [
+    {
+      "name": "NovaCart-Desktop",
+      "overflow": 0,
+      "title": "Good things. Every day. — NovaCart"
+    },
+    {
+      "name": "NovaCart-Mobile",
+      "overflow": 0,
+      "title": "Good things. Every day. — NovaCart"
+    },
+    {
+      "name": "NovaCart-Product",
+      "overflow": 0,
+      "title": "AeroSound wireless headphones — NovaCart"
+    },
+    {
+      "name": "NovaCart-Product-Mobile",
+      "overflow": 0,
+      "title": "AeroSound wireless headphones — NovaCart"
+    },
+    {
+      "name": "NovaCart-Login",
+      "overflow": 0,
+      "title": "NovaCart — Your account"
+    },
+    {
+      "name": "NovaCart-Login-Mobile",
+      "overflow": 0,
+      "title": "NovaCart — Your account"
+    },
+    {
+      "name": "NovaCart-Account",
+      "overflow": 0,
+      "title": "NovaCart — My account"
+    },
+    {
+      "name": "NovaCart-Orders-Mobile",
+      "overflow": 0,
+      "title": "NovaCart — My orders"
+    },
+    {
+      "name": "NovaCart-Support",
+      "overflow": 0,
+      "title": "Here to help — NovaCart"
+    },
+    {
+      "name": "NovaCart-Support-Mobile",
+      "overflow": 0,
+      "title": "Here to help — NovaCart"
+    },
+    {
+      "name": "NovaCart-Seller",
+      "overflow": 0,
+      "title": "Seller center — NovaCart"
+    },
+    {
+      "name": "NovaCart-Seller-Mobile",
+      "overflow": 0,
+      "title": "Seller center — NovaCart"
+    },
+    {
+      "name": "NovaCart-Admin",
+      "overflow": 0,
+      "title": "NovaCart — Admin Store workspace"
+    },
+    {
+      "name": "NovaCart-Admin-Mobile",
+      "overflow": 0,
+      "title": "NovaCart — Admin Store workspace"
+    }
+  ],
+  "errors": [],
+  "missing": []
+}

@@ -1,0 +1,15 @@
+{
+  "release": "20.1",
+  "checks": [
+    "signed-out access message",
+    "admin configuration cards",
+    "database migration status",
+    "refresh action",
+    "390px layout without horizontal overflow",
+    "no browser exceptions",
+    "invalid refund amount sends no request",
+    "partial refund keeps the remaining refund action",
+    "lost response retries the persisted request after reload without a duplicate transfer"
+  ],
+  "liveProviders": false
+}

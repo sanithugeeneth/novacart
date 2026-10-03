@@ -1,0 +1,38 @@
+{
+  "result": "passed",
+  "date": "2026-09-29T10:51:26.623Z",
+  "browser": "131.0.6778.0",
+  "checks": [
+    "Canonical /p URL opens the complete Forma product page with working images and LKR price.",
+    "Gallery previous/next controls work directly on the SEO URL.",
+    "Variant selection updates price, stock, structured offer and buy-button availability.",
+    "Add to cart, quantity and wishlist use the canonical product ID.",
+    "Full page and tabs fit mobile and desktop widths.",
+    "Buy now proceeds to the existing checkout without an intermediate product page.",
+    "Legacy product.html links redirect automatically to the same full product page.",
+    "With JavaScript off, styled product details, price, image, specifications and reviews remain readable.",
+    "A review-network failure does not remove product content or purchase controls.",
+    "Missing product returns a readable 404 page."
+  ],
+  "dimensions": [
+    {
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "width": 1440,
+      "overflow": 0
+    }
+  ],
+  "errors": [],
+  "failedAssets": [],
+  "scope": "Local sample data, no charges or external provider calls."
+}

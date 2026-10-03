@@ -1,0 +1,50 @@
+NovaCart v19.4 — Payout Ledger + Full Catalog Search
+
+The earlier MFA, payment, seller, design and form fixes are included.
+Node.js 20+ and PostgreSQL are required. node_modules is included.
+
+UPDATE
+
+1. Keep a backup of your current project and database. Extract this ZIP into
+   a new folder and copy your existing private .env into it.
+2. Start your existing PostgreSQL database.
+3. Run these commands in the new project folder:
+      npm run db:migrate
+      npm test
+      npm start
+4. Hard-refresh the storefront and admin pages (Ctrl+F5).
+
+The migration is REQUIRED: it adds the payout allocation ledger and indexes.
+It preserves your existing sellers, products, orders and payout records.
+If dependencies need restoring: npm ci
+
+PAYOUT BEHAVIOR
+
+- Only confirmed paid orders qualify. An order cannot be allocated twice.
+- Repeating a seller/period request returns the existing payout record.
+- Overlapping periods can include newly eligible orders, while skipping
+  orders already allocated. Failed payouts retain allocations for retry.
+- The admin payout control asks for the reference of a completed transfer.
+  It records a ledger status; it does not transfer money.
+- For delivered COD orders, use Admin > Orders > Record COD collection
+  after receiving the cash and keep the collection receipt reference.
+- Old aggregate payout records, refunds and returns may require accounting
+  reconciliation. Read FIXES-v19.4.md before processing historical payouts.
+  Never reset a paid record just to generate another payout.
+
+Payout generation endpoint remains POST /api/seller/payouts/generate,
+with JSON periodStart and periodEnd (YYYY-MM-DD), the seller session cookie
+and the session CSRF header. Period boundaries use UTC dates.
+
+CATALOG
+
+Load more, search, categories and sort now request the full active catalog.
+Saved cart/wishlist products are restored even when outside the first page.
+
+TESTS
+
+  npm test                       Complete suite
+  npm run payout-catalog:check    Payout and catalog checks
+
+Tests use local fixtures and an isolated embedded database; they do not
+modify your store database or send money. Read VALIDATION-v19.4.md.

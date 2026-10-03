@@ -1,0 +1,46 @@
+NovaCart v21.4 — Seller Dashboard
+
+Seller center එකෙන් දැන් කළ හැකි වැඩ:
+1. Products → Add product: title, category, SKU, price, image URL, description,
+   base stock සහ visibility ඇතුළත් කර Save product කරන්න.
+2. Edit product: details/price/image වෙනස් කිරීම, shop එකෙන් hide/publish කිරීම.
+3. Update stock: අලුතින් sell කළ හැකි stock ප්‍රමාණය save කිරීම.
+4. Variants: option එකක් add/edit කිරීම, variant price/stock/visibility වෙනස් කිරීම.
+5. Orders & shipping: order search/filter, තමන්ගේ items සහ delivery details,
+   processing/packed/shipped status, courier සහ tracking number save කිරීම.
+6. Your payouts: period dates තෝරා Request payout කිරීම සහ refund deductions බැලීම.
+
+Stock changed / Reload error එකක් ආවොත්:
+Checkout එකකින් හෝ වෙනත් edit එකකින් stock/details වෙනස් වී තිබිය හැකියි.
+Reload latest / Reload latest values ඔබලා අලුත් values බලලා නැවත save කරන්න.
+Stock කියන්නේ දැනට sell කළ හැකි units ගණනයි. Base/variant stock වෙන වෙනමයි.
+Supplier-linked stock/variants supplier synchronization එකෙන් පාලනය කරනවා.
+
+Payout request එක admin review queue/ledger එකට යනවා.
+මෙම button එකෙන් bank transfer එකක් යවන්නේ නැහැ. Admin ඇත්තටම transfer කළ
+පසු reference එක දාලා paid ලෙස සටහන් කළ යුතුයි.
+Unpaid card orders ship කරන්න බැහැ; COD orders සඳහා තිබෙන අවසරය රැකගෙන තිබෙනවා.
+
+Upgrade:
+- Existing database backup කරන්න; පැරණි app එක නවත්වන්න.
+- මෙම release එකේ source සහ static files එකට update කරන්න.
+- Existing database සහ private configuration තබාගෙන npm run db:migrate කරන්න.
+- App එක නැවත start කරන්න; seller.html hard refresh කරන්න (Ctrl+F5).
+v21.3 සිට අලුත් schema change එකක් නැහැ. පරණ releases වලින් එන අයට
+v21.3 refund tables ඇතුළු දැනට තිබෙන migration අවශ්‍යයි.
+
+Docker නැතුව sample dashboard බලන්න (Node.js 22+):
+    npm.cmd run preview:ui
+Terminal එකේ ලැබෙන local address + /seller.html open කර:
+    Seller: alpha@local.test
+    Password: SellerFixture123!
+මෙම login එක temporary preview එකට පමණයි. Preview data restart කළාම reset වෙනවා.
+Production setup: DEPLOYMENT-v20.1.md
+
+Tests:
+    npm run seller-dashboard:check
+    npm test
+Tests 131 passed. Browser checks 10 passed, 320/390/768/1440px layouts verified.
+වැඩි විස්තර: SELLER-DASHBOARD-v21.4.md
+මෙම ZIP එක live server එකකට deploy කරලා නැහැ.
+පැරණි versioned notes historical උපදෙස් පමණයි.

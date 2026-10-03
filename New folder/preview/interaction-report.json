@@ -1,0 +1,18 @@
+{
+  "result": "passed",
+  "browser": "131.0.6778.0",
+  "checks": [
+    "Load more reaches all 60 preview products without duplicates.",
+    "Live search finds products beyond the first 48.",
+    "Favourites opens with keyboard focus; Escape closes and restores focus.",
+    "Bag quantities, delivery recalculation, mobile checkout and a real local COD order work.",
+    "Customer sign-in and mobile category menu work.",
+    "Product variants, quantities, tab controls and add-to-bag work.",
+    "Support form creates a ticket and shows inline confirmation.",
+    "Seller application submits valid JSON and shows inline confirmation.",
+    "Admin tab resumes a server-verified session, shows the full catalogue, opens/closes the product editor and survives reload.",
+    "No horizontal overflow on the public page family at 320, 390, 768 and 1440 px (combined visual checks)."
+  ],
+  "pageErrors": [],
+  "environment": "Local HTTP server, isolated PGlite PostgreSQL schema, bundled real photos/fonts, mocked Stripe. No live payments or emails."
+}

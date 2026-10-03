@@ -1,0 +1,17 @@
+NovaCart v21.1 — Seller payment guard
+
+නොගෙවූ card orders seller API එකෙන් processing / packed / shipped කිරීම දැන් block වෙනවා.
+ගෙවූ card orders සහ Cash on Delivery orders වැඩ කරනවා.
+
+1. ZIP එක extract කර project folder එකෙන් terminal එක open කරන්න.
+2. Node.js 22+ අවශ්‍යයි. Dependencies නැති නම්: npm ci
+3. මේ fix එකේ tests: npm run seller-fulfillment:check
+4. සියලු tests: npm test
+5. UI preview: npm run preview:ui
+
+දැනට live store එකක් තියෙනවා නම් existing database/private configuration තබාගෙන
+server code update කර application එක restart කරන්න. DEPLOYMENT-v20.1.md කියවන්න.
+මේ patch එකට අලුත් database migration එකක් නැහැ.
+
+විස්තර / test evidence: SELLER-PAYMENT-GUARD-v21.1.md
+මේ ZIP එක live server එකකට deploy කරලා නැහැ.

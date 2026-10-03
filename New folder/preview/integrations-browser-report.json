@@ -1,0 +1,41 @@
+{
+  "checks": [
+    "Google sign-in button completes a signed provider-fixture callback and shows the connected account.",
+    "Photo search uploads real bytes, obtains recognized objects and renders real catalogue links; Escape returns focus.",
+    "Supplier workspace previews/imports a product and refreshes its stock from a provider fixture.",
+    "Supplier UI previews a Stripe-confirmed order, sends one fulfillment request and records the provider reference.",
+    "The complete admin workspace restores its session, renders charts and remains closed until an editor is requested."
+  ],
+  "screens": [
+    {
+      "name": "NovaCart-Visual-Search",
+      "overflow": 0
+    },
+    {
+      "name": "NovaCart-Visual-Search-Mobile",
+      "overflow": 0
+    },
+    {
+      "name": "NovaCart-Suppliers-Mobile",
+      "overflow": 0
+    },
+    {
+      "name": "NovaCart-Suppliers",
+      "overflow": 0
+    },
+    {
+      "name": "NovaCart-Suppliers-Compact",
+      "overflow": 0
+    },
+    {
+      "name": "NovaCart-Admin",
+      "overflow": 0
+    },
+    {
+      "name": "NovaCart-Admin-Mobile",
+      "overflow": 0
+    }
+  ],
+  "errors": [],
+  "environment": "Real Chromium and local HTTP/PostgreSQL schema. Google, Vision, Stripe and Amazon provider responses are fixtures; no external accounts, charges or supplier orders."
+}

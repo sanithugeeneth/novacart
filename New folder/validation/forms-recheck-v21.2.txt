@@ -1,0 +1,13 @@
+✔ support form sends JSON and CSRF, saves its message and refreshes the ticket list (3157.840744ms)
+✔ support form accepts a real order reference and the ticket stays private to its owner (84.089773ms)
+✔ seller application sends all fields as JSON and saves a pending profile once (35.055487ms)
+✔ both forms retain entered data and display errors for missing required fields (33.716406ms)
+✔ both form submissions still enforce authentication and CSRF (55.466058ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3765.400268

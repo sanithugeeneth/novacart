@@ -1,0 +1,16 @@
+{
+  "result": "passed",
+  "browser": "131.0.6778.0",
+  "checks": [
+    "Admin supplier workspace shows automation mode and separate supplier payment state.",
+    "Account product-read probe works without importing or ordering.",
+    "Cancellation requires a distinct confirmation and stays requested until provider confirmation.",
+    "Sync status fills provider tracking and payment state in the ledger.",
+    "Supplier controls and ledger fit desktop and mobile layouts.",
+    "Customer order tracking displays the synced supplier package beside the other seller shipment.",
+    "Email OTP waits for mailbox verification, with resend cooldown and a readable mobile layout.",
+    "Wrong email code rejected; correct code creates an admin session restored on reload."
+  ],
+  "errors": [],
+  "scope": "Local isolated database and captured provider/SMTP responses; no purchases, real email or live deployment."
+}

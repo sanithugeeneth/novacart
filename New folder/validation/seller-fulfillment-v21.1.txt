@@ -1,0 +1,19 @@
+✔ unpaid card orders cannot be processed, packed or shipped, including forged payment fields (2309.525323ms)
+✔ an unpaid signed checkout notification and stale seller status never unlock shipping (31.279813ms)
+✔ a verified paid card order can progress and update tracking without reversing fulfillment (81.297218ms)
+✔ cash-on-delivery orders can be processed, packed and shipped before collection (35.297802ms)
+✔ closed, released, inconsistent or unknown payment states fail closed without mutation (263.633689ms)
+✔ an unresolved refund blocks fulfillment until its failure is confirmed (78.435137ms)
+✔ successful partial and full refunds both stop seller fulfillment (125.224849ms)
+✔ fulfillment keeps authentication, CSRF, seller ownership and status validation (63.654722ms)
+✔ multi-seller orders are blocked until paid and each seller updates only its own allocation (92.802188ms)
+[5c717f2b-967a-4bce-8566-3f85230a00a9] Seller fulfillment update failed: Local simulated database write failure
+✔ a failed audit write rolls back the status and tracking update (30.672273ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3355.054573

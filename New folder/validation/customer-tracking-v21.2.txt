@@ -1,0 +1,29 @@
+✔ seller tracking and status reach both customer shipment and order-list APIs (2584.943859ms)
+✔ multi-seller shipments retain distinct tracking and report partial dispatch (48.632507ms)
+✔ mixed store and seller items keep store tracking separate and never claim premature complete dispatch (37.843302ms)
+✔ existing seller tracking is visible without rewriting historical rows or generating fake events (21.634356ms)
+✔ store-only tracking and existing administrator shipment events remain available (17.093605ms)
+✔ omitted tracking fields are preserved and explicit corrections are returned on the next read (56.601345ms)
+✔ customer shipment data requires the order owner and excludes seller financial/private records (41.442848ms)
+✔ unpaid shipping stays blocked and customer reads cannot turn it into paid or shipped (52.891191ms)
+✔ partially dispatched COD orders cannot be cancelled and restocked by the customer (74.025319ms)
+✔ terminal administrative status remains authoritative over historical shipment progress (42.958161ms)
+✔ unpaid card orders cannot be processed, packed or shipped, including forged payment fields (2653.167587ms)
+✔ an unpaid signed checkout notification and stale seller status never unlock shipping (33.651699ms)
+✔ a verified paid card order can progress and update tracking without reversing fulfillment (85.461859ms)
+✔ cash-on-delivery orders can be processed, packed and shipped before collection (40.43267ms)
+✔ closed, released, inconsistent or unknown payment states fail closed without mutation (262.004376ms)
+✔ an unresolved refund blocks fulfillment until its failure is confirmed (87.019331ms)
+✔ successful partial and full refunds both stop seller fulfillment (113.126935ms)
+✔ fulfillment keeps authentication, CSRF, seller ownership and status validation (74.649014ms)
+✔ multi-seller orders are blocked until paid and each seller updates only its own allocation (63.203756ms)
+[a8c140e5-91d1-4c1d-bdba-90b80d2bd0fb] Seller fulfillment update failed: Local simulated database write failure
+✔ a failed audit write rolls back the status and tracking update (32.645807ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3704.386727

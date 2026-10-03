@@ -1,0 +1,40 @@
+NovaCart v19.2 — Seller System + Signature Design Fix
+
+This ZIP includes the earlier v19.1 admin MFA and payment confirmation fixes.
+node_modules is included. Node.js 20+ and PostgreSQL are required.
+
+UPDATE AN EXISTING INSTALLATION
+
+1. Extract into a new folder. Keep a backup of your current project and database.
+2. Copy your existing private .env into this new folder.
+   Keep your existing DATABASE_URL, admin MFA secret and payment configuration.
+3. Start your existing PostgreSQL database.
+4. In the new folder run:
+      npm run db:migrate
+      npm test
+      npm start
+5. Open http://localhost:3000 (or your configured address).
+   Sign in with an approved seller account and open /seller.html.
+6. Hard-refresh the browser after updating (Ctrl+F5 on Windows).
+   /signature-ui.css and /signature-ui.js should both return 200.
+
+If dependencies need restoring, run npm ci before the commands above.
+Do not delete existing sellers or change their UUIDs. The fix correctly maps
+owner user IDs to seller profile IDs using the existing database records.
+
+NEW INSTALLATION / UPGRADING FROM v19.0
+
+Follow START-HERE-v19.1.txt for database, admin MFA and Stripe configuration.
+Run npm test for the combined current suite. All 27 tests pass locally.
+Admin sessions created before the MFA update require a fresh admin sign-in.
+
+VERIFICATION COMMANDS
+
+  npm test                         All 27 automated regression tests
+  npm run seller-design:check      Seller + design tests
+  npm run security-payment:check   Admin MFA + payment tests
+
+The tests use an isolated embedded database and local payment fixtures;
+they do not modify your configured database or charge a payment card.
+
+Read FIXES-v19.2.md and VALIDATION-v19.2.md for changes and test boundaries.

@@ -1,0 +1,14 @@
+✔ formatter uses explicit currency codes, preserves values and never guesses USD (3796.812524ms)
+✔ admin and seller product prices use the configured currency even for old USD-default catalogue rows (43.989757ms)
+✔ current-currency revenue, analytics and customer value exclude historical foreign amounts (34.439811ms)
+✔ historical order currencies remain unchanged in both operational screens (23.213534ms)
+✔ seller payout summary includes only store-currency balances while history keeps both currencies (33.588457ms)
+✔ shared formatter is served and static admin placeholders never claim dollars before configuration loads (15.865738ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4389.614099

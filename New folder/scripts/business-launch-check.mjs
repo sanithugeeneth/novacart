@@ -1,0 +1,5 @@
+import fs from 'node:fs';
+const required=['server.js','schema.sql','index.html','product.html','login.html','admin.html','seller.html','app.js','product.js','auth.js','admin.js','seller.js','docker-compose.yml','.env.example'];
+const missing=required.filter(x=>!fs.existsSync(x));
+const s=fs.readFileSync('server.js','utf8');
+const checks=[['JSON parser',s.includes("express.json({ limit: '1mb' })")],['Admin auth',s.includes('/api/admin/login')],['Checkout idempotency',s.includes('idempotency-key')],['Stripe webhook',s.includes('/api/stripe/webhook')],['Dynamic coupons',s.includes('/api/coupons/validate')],['Server wishlist',s.includes('/api/wishlist')],['Recommendations',s.includes('/api/recommendations')],['Seller payouts',s.includes('seller_payout_generate')],['Product Q&A',s.includes('/api/admin/questions')],['Support',s.includes('/api/support/tickets')],['Fraud',s.includes('fraud_events')],['MFA',s.includes('ADMIN_MFA_REQUIRED')]];for(const [name,ok] of checks)console.log(`${ok?'PASS':'FAIL'} ${name}`);if(missing.length||checks.some(([,ok])=>!ok))process.exitCode=1;console.log(`Business Launch check: ${process.exitCode?'FAILED':'PASS'}`);

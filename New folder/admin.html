@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NovaCart — Admin Store workspace</title>
+<link rel="icon" href="favicon.svg">
+
+
+
+
+
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="admin-ultra.css"><link rel="stylesheet" href="forma-ui.css"><link rel="stylesheet" href="/motion.css?v=21.9"></head>
+<body class="admin-page" data-design="forma">
+<div id="auth" class="auth">
+  <div class="auth-card">
+    <div class="auth-kicker">NovaCart • Secure Admin</div>
+    <h2>Store workspace</h2>
+    <p>Manage products, orders, customers, marketplace operations and store intelligence from one workspace.</p>
+    <div class="auth-row">
+      <input id="adminEmail" aria-label="Admin email" class="input" type="email" autocomplete="username" placeholder="Admin email">
+      <input id="adminPassword" aria-label="Admin password" class="input" type="password" autocomplete="current-password" placeholder="Admin password">
+      <input id="adminOtp" aria-label="One-time code" class="input" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="OTP (if enabled)">
+      <button id="loginBtn" class="btn primary" disabled>Loading sign-in…</button><button id="resendOtpBtn" type="button" class="btn hidden">Resend email code</button>
+    </div>
+    <div id="loginStatus" class="login-status" role="status" aria-live="polite"></div>
+  </div>
+</div>
+
+<div id="app" class="app-shell hidden">
+  <aside id="sidebar" class="sidebar">
+    <a class="brand" href="#overview" data-view="overview"><span class="brand-mark">N</span><span class="brand-copy"><span class="brand-text">NovaCart</span><small>Admin Store workspace</small></span></a>
+    <div class="side-label">Workspace</div>
+    <nav class="nav" id="mainNav"><a href="/launch.html"><span class="nav-icon">↗</span><span class="nav-text">Launch setup</span></a><a href="/integrations.html"><span class="nav-icon">↗</span><span class="nav-text">Suppliers</span></a>
+      <a href="#overview" data-view="overview" class="active"><span class="nav-icon">⌂</span><span class="nav-text">Overview</span></a>
+      <a href="#orders" data-view="orders"><span class="nav-icon">▤</span><span class="nav-text">Orders</span></a>
+      <a href="#products" data-view="products"><span class="nav-icon">◈</span><span class="nav-text">Products</span></a>
+      <a href="#customers" data-view="customers"><span class="nav-icon">◎</span><span class="nav-text">Customers</span></a>
+      <a href="#inventory" data-view="inventory"><span class="nav-icon">▦</span><span class="nav-text">Inventory</span></a>
+      <a href="#reviews" data-view="reviews"><span class="nav-icon">★</span><span class="nav-text">Reviews</span></a>
+      <a href="#returns" data-view="returns"><span class="nav-icon">↩</span><span class="nav-text">Returns</span></a>
+    </nav>
+    <div class="side-label">Marketplace</div>
+    <nav class="nav">
+      <a href="#sellers" data-view="sellers"><span class="nav-icon">◆</span><span class="nav-text">Sellers</span></a>
+      <a href="#payouts" data-view="payouts"><span class="nav-icon">↗</span><span class="nav-text">Payouts</span></a>
+      <a href="#promotions" data-view="promotions"><span class="nav-icon">%</span><span class="nav-text">Promotions</span></a>
+      <a href="#questions" data-view="questions"><span class="nav-icon">?</span><span class="nav-text">Q&amp;A</span></a>
+      <a href="#support" data-view="support"><span class="nav-icon">✉</span><span class="nav-text">Support</span></a>
+      <a href="#risk" data-view="risk"><span class="nav-icon">!</span><span class="nav-text">Risk</span></a>
+    </nav>
+    <div class="side-label">Control</div>
+    <nav class="nav">
+      <a href="#analytics" data-view="analytics"><span class="nav-icon">◒</span><span class="nav-text">Analytics</span></a>
+      <a href="#audit" data-view="audit"><span class="nav-icon">◌</span><span class="nav-text">Audit</span></a>
+      <a href="#settings" data-view="settings"><span class="nav-icon">⚙</span><span class="nav-text">Settings</span></a>
+    </nav>
+    <div class="side-card"><div><span class="health-dot"></span><strong>NovaCart workspace</strong></div><p>Your store. Thoughtfully managed.</p></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="heading"><div class="eyebrow">Operations dashboard</div><h1 id="pageTitle">Your store, at a glance.</h1><p id="pageSub">The numbers, the orders and the moments that matter.</p></div>
+      <div class="top-tools">
+        <button id="mobileMenu" class="btn mobile-menu">☰ Menu</button>
+        <input id="globalSearch" aria-label="Search orders, products and customers" class="search global-search" placeholder="Search orders, products, customers…">
+        <button id="refreshBtn" class="btn">↻ Refresh</button>
+        <a href="/" target="_blank" class="btn primary" style="text-decoration:none">View store ↗</a>
+        <div class="profile"><div class="avatar">N</div><div><strong>NovaCart Admin</strong><small>Store owner</small></div></div>
+      </div>
+    </header>
+
+    <div id="overview" class="view active">
+      <div class="toolbar"><div class="date-chip" id="todayChip">Live workspace</div><div class="pill-row"><span id="healthPill" class="badge green">AWAITING STATUS</span><span id="lastSync" class="badge blue">SYNCING…</span></div></div>
+      <div class="kpis">
+        <div class="kpi"><div class="kpi-label">Revenue</div><div id="statRevenue" class="kpi-value">—</div><div class="kpi-note">Current currency: <span data-store-currency>—</span> · excludes cancelled / failed / refunded orders</div></div>
+        <div class="kpi"><div class="kpi-label">Orders</div><div id="statOrders" class="kpi-value">0</div><div class="kpi-note">All recorded orders</div></div>
+        <div class="kpi"><div class="kpi-label">Customers</div><div id="statCustomers" class="kpi-value">0</div><div class="kpi-note">Registered non-admin users</div></div>
+        <div class="kpi"><div class="kpi-label">Active products</div><div id="statProducts" class="kpi-value">0</div><div class="kpi-note">Published catalogue items</div></div>
+        <div class="kpi"><div class="kpi-label">Low stock</div><div id="statLowStock" class="kpi-value">0</div><div class="kpi-note">Products at or below five units</div></div>
+      </div>
+      <div class="split">
+        <section class="card"><div class="card-head"><div><h3>Revenue performance</h3><p>Daily revenue in <span data-store-currency>—</span> from the selected window.</p></div><select id="overviewDays" class="select" style="width:auto"><option value="7">7 days</option><option value="30" selected="">30 days</option><option value="90">90 days</option></select></div><div class="card-body"><div id="overviewChart" class="chart"></div><div class="chart-foot"><span id="overviewLow">—</span><span id="overviewHigh">—</span></div></div></section>
+        <section class="card"><div class="card-head"><div><h3>Needs attention</h3><p>Operational queues that deserve a quick check.</p></div></div><div class="card-body"><div id="attentionList" class="alert-grid"></div></div></section>
+      </div>
+      <div class="split">
+        <section class="card"><div class="card-head"><div><h3>Order pulse</h3><p>Current status mix across recent orders.</p></div><a href="#orders" data-view="orders" class="btn subtle">Open orders</a></div><div class="card-body"><div id="orderPulse" class="summary-strip"></div><div id="recentOrdersMini" class="table-wrap"></div></div></section>
+        <section class="card"><div class="card-head"><div><h3>Top products</h3><p>Sorted by engagement signals from the catalogue.</p></div><a href="#products" data-view="products" class="btn subtle">Manage</a></div><div class="card-body"><div id="topProductsMini" class="alert-grid"></div></div></section>
+      </div>
+    </div>
+
+    <div id="orders" class="view"><section class="section-panel"><div class="card-head"><div><h3>Orders workspace</h3><p>Search, inspect, update fulfilment and review payment state without leaving the panel.</p></div><div class="toolbar-mini"><select id="orderStatusFilter" class="select" style="width:170px"><option value="">All statuses</option><option>pending_payment</option><option>placed</option><option>processing</option><option>packed</option><option>shipped</option><option>delivered</option><option>cancelled</option><option>refunded</option></select><select id="orderPaymentFilter" class="select" style="width:145px"><option value="">All payments</option><option>paid</option><option>unpaid</option><option>cod</option><option>refunded</option><option>partially_refunded</option></select></div></div><div class="section-body"><div id="ordersSummary" class="summary-strip"></div><div id="ordersTable" class="table-wrap"></div></div></section></div>
+
+    <div id="products" class="view"><section class="section-panel"><div class="card-head"><div><h3>Product studio</h3><p>Create, edit, archive and enrich catalogue items with variants and media.</p></div><div class="toolbar-mini"><input id="productSearch" class="search" style="width:240px" placeholder="Find a product…"><button id="openProductCreate" class="btn primary">＋ New product</button></div></div><div class="section-body"><div id="productsTable" class="table-wrap"></div></div></section></div>
+
+    <div id="customers" class="view"><section class="section-panel"><div class="card-head"><div><h3>Customer intelligence</h3><p>Customer value, verification state and recent activity at a glance.</p></div><input id="customerSearch" class="search" style="width:250px" placeholder="Search name or email…"></div><div class="section-body"><div id="customersTable" class="table-wrap"></div></div></section></div>
+
+    <div id="inventory" class="view"><section class="section-panel"><div class="card-head"><div><h3>Inventory control</h3><p>Adjust stock with traceable reasons and focus on items at risk.</p></div><div class="toolbar-mini"><select id="inventoryFilter" class="select" style="width:160px"><option value="all">All stock</option><option value="low">Low ≤ 5</option><option value="out">Out of stock</option></select></div></div><div class="section-body"><div id="inventoryTable" class="table-wrap"></div></div></section></div>
+
+    <div id="reviews" class="view"><section class="section-panel"><div class="card-head"><div><h3>Review moderation</h3><p>Approve or reject feedback before it reaches the storefront.</p></div><span id="reviewQueueBadge" class="badge amber">0 PENDING</span></div><div class="section-body"><div id="reviewsTable" class="table-wrap"></div></div></section></div>
+
+    <div id="returns" class="view"><section class="section-panel"><div class="card-head"><div><h3>Returns &amp; refunds</h3><p>Manage return requests and keep refund state aligned with payment status.</p></div><select id="returnFilter" class="select" style="width:160px"><option value="">All statuses</option><option>requested</option><option>approved</option><option>rejected</option><option>received</option><option>refunded</option></select></div><div class="section-body"><div id="returnsTable" class="table-wrap"></div></div></section></div>
+
+    <div id="sellers" class="view"><section class="section-panel"><div class="card-head"><div><h3>Seller control</h3><p>Approve, suspend and review marketplace seller profiles.</p></div><span id="sellerBadge" class="badge blue">0 SELLERS</span></div><div class="section-body"><div id="sellerTable" class="table-wrap"></div></div></section></div>
+
+    <div id="payouts" class="view"><section class="section-panel"><div class="card-head"><div><h3>Payout ledger</h3><p>Reconcile refunds before recording a transfer. Refund deductions and carried balances stay visible; this screen does not send money.</p></div></div><div class="section-body"><div id="payoutTable" class="table-wrap"></div></div></section></div>
+
+    <div id="promotions" class="view"><section class="section-panel"><div class="card-head"><div><h3>Promotion center</h3><p>Create coupon campaigns, monitor use and toggle campaigns on or off.</p></div></div><div class="section-body"><div class="form-grid" style="margin-bottom:14px"><input id="couponCode" class="input" placeholder="Coupon code"><input id="couponPercent" class="input" type="number" step="0.01" placeholder="Percent off"><input id="couponFixed" class="input" type="number" step="0.01" placeholder="Fixed off"><input id="couponMin" class="input" type="number" step="0.01" placeholder="Minimum subtotal"><input id="couponMax" class="input" type="number" placeholder="Max uses"><input id="couponExpiry" class="input" type="datetime-local"></div><div style="display:flex;justify-content:flex-end;margin-bottom:14px"><button id="createCoupon" class="btn primary">Create campaign</button></div><div id="couponTable" class="table-wrap"></div></div></section></div>
+
+    <div id="questions" class="view"><section class="section-panel"><div class="card-head"><div><h3>Product Q&amp;A</h3><p>Answer customer questions or hide inappropriate entries.</p></div></div><div class="section-body"><div id="questionTable" class="table-wrap"></div></div></section></div>
+
+    <div id="support" class="view"><section class="section-panel"><div class="card-head"><div><h3>Support desk</h3><p>Track buyer support tickets and update their operational state.</p></div><select id="supportFilter" class="select" style="width:150px"><option value="">All statuses</option><option>open</option><option>pending</option><option>resolved</option><option>closed</option></select></div><div class="section-body"><div id="supportTable" class="table-wrap"></div></div></section></div>
+
+    <div id="risk" class="view"><section class="section-panel"><div class="card-head"><div><h3>Risk monitor</h3><p>Recent fraud/risk signals stored by the marketplace backend.</p></div></div><div class="section-body"><div id="riskTable" class="table-wrap"></div></div></section></div>
+
+    <div id="analytics" class="view"><section class="section-panel"><div class="card-head"><div><h3>Business analytics</h3><p>Revenue, order volume, average order value and category economics.</p></div><select id="analyticsDays" class="select" style="width:150px"><option value="7">7 days</option><option value="30" selected="">30 days</option><option value="90">90 days</option><option value="180">180 days</option><option value="365">365 days</option></select></div><div class="section-body"><div id="analyticsSummary" class="summary-strip"></div><div id="analyticsChart" class="chart" style="margin-bottom:12px"></div><div id="analyticsTable" class="table-wrap"></div></div></section></div>
+
+    <div id="audit" class="view"><section class="section-panel"><div class="card-head"><div><h3>Audit &amp; operational history</h3><p>Recent admin activity and traceable operational changes.</p></div><input id="auditSearch" class="search" style="width:250px" placeholder="Filter action, actor or target…"></div><div class="section-body"><div id="auditTable" class="table-wrap"></div></div></section></div>
+
+    <div id="settings" class="view"><section class="section-panel"><div class="card-head"><div><h3>Store control center</h3><p>Review key runtime settings and launch-readiness notes.</p></div></div><div class="section-body"><div class="security-note"><div>◈</div><div><b>Production reminder:</b> this local admin build is connected to the running NovaCart app. Before public launch, configure strong secrets, HTTPS, production database backups, email delivery and live payment credentials.</div></div><div class="summary-strip" style="margin-top:14px"><div class="summary-mini"><span>Application</span><strong>NovaCart 21.9</strong></div><div class="summary-mini"><span>Database</span><strong>PostgreSQL</strong></div><div class="summary-mini"><span>Store currency</span><strong id="settingsCurrency">—</strong></div><div class="summary-mini"><span>Store URL</span><strong id="settingsBase">localhost:3000</strong></div></div><div class="detail-grid"><div class="detail"><label>Admin surface</label><strong>Store workspace</strong></div><div class="detail"><label>Security layers</label><strong>Session + CSRF + rate limiting</strong></div><div class="detail"><label>Marketplace tools</label><strong>Sellers • payouts • coupons • Q&amp;A</strong></div><div class="detail"><label>Operational tools</label><strong>Orders • inventory • reviews • returns • audit</strong></div></div></div></section></div>
+  </main>
+</div>
+
+<div id="drawerBackdrop" class="drawer-backdrop"><aside id="orderDrawer" class="drawer"></aside></div>
+<div id="modalBackdrop" class="modal-backdrop"><div id="modal" class="modal"></div></div>
+<div id="toast" role="status" aria-live="polite" class="toast hidden"></div>
+<script src="workspace-money.js"></script><script src="admin.js"></script>
+
+
+<script src="signature-ui.js"></script>
+
+<script src="/motion.js?v=21.9"></script></body></html>

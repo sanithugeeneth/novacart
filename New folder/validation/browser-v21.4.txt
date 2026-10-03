@@ -1,0 +1,37 @@
+{
+  "result": "passed",
+  "date": "2026-09-28T11:18:03.712Z",
+  "browser": "131.0.6778.0",
+  "checks": [
+    "Add product with price, image URL and inventory.",
+    "Edit product details and hide it from the customer shop.",
+    "Quick stock update and explicit reload after a stale stock conflict.",
+    "Add a variant, change variant stock and hide an option.",
+    "Server search and catalogue pagination from the UI.",
+    "Paid shipment update reaches the customer; unpaid card order has no shipping form.",
+    "Payout request appears in the admin ledger and repeated request reuses the existing period.",
+    "Visible network failure with working refresh recovery.",
+    "Seller workspace and product dialog fit 320, 390, 768 and 1440px.",
+    "Anonymous and pending seller screens keep all management controls hidden."
+  ],
+  "dimensions": [
+    {
+      "width": 320,
+      "pageOverflow": 0
+    },
+    {
+      "width": 390,
+      "pageOverflow": 0
+    },
+    {
+      "width": 768,
+      "pageOverflow": 0
+    },
+    {
+      "width": 1440,
+      "pageOverflow": 0
+    }
+  ],
+  "errors": [],
+  "scope": "Local sample database, mocked card provider, no real charges or transfers."
+}

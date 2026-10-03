@@ -1,0 +1,59 @@
+{
+  "result": "passed",
+  "date": "2026-09-26T04:46:56.124Z",
+  "browser": "131.0.6778.0",
+  "checks": [
+    "Seller form saves tracking and customer deep link displays partial multi-seller shipment.",
+    "Second seller saves through mobile UI; refresh shows both distinct tracking numbers and shipped summary.",
+    "Tracking corrections propagate and seller-provided HTML is rendered as text.",
+    "Tracking error stays on the order page and refresh recovers.",
+    "Accessible disclosure state and keyboard focus survive hide/reopen.",
+    "Customer and seller pages fit 320, 390, 768 and 1440 pixel widths.",
+    "Account order history shows current fulfillment and opens the correct tracking panel."
+  ],
+  "views": [
+    {
+      "name": "customer",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "name": "seller",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "name": "customer",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "name": "seller",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "name": "customer",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "name": "seller",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "name": "customer",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "name": "seller",
+      "width": 1440,
+      "overflow": 0
+    }
+  ],
+  "errors": [],
+  "missing": [],
+  "environment": "Local HTTP/PGlite, isolated sample data, no external courier/payment requests."
+}

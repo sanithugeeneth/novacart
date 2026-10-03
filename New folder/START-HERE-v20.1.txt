@@ -1,0 +1,38 @@
+NovaCart v20.1 — Launch setup
+
+මේ ZIP එකේ කලින් UI සහ fixes සමඟ production setup / refund reliability updates තියෙනවා.
+Live hosting එකකට තවම deploy කරලා නැහැ. Provider accounts හෝ secret keys මේ ZIP එකේ නැහැ.
+
+1. Local UI preview:
+   npm run preview:ui
+   මෙය temporary sample database එකක්. Real payments / external email යවන්නේ නැහැ.
+
+2. Existing store එක update කරනවා නම්:
+   Database backup සහ දැනට තියෙන private settings/MFA key එක තබාගන්න.
+   Database migration එක අවශ්‍යයි. DEPLOYMENT-v20.1.md පළමුව කියවන්න.
+   අලුත් database password එකක් generate කරලා පැරණි database එක overwrite කරන්න එපා.
+
+3. අලුත් production server එකකට:
+   DEPLOYMENT-v20.1.md හි setup:production command එක ඔබේ domain/email/address සමඟ run කරන්න.
+   එය .env.production private file එකක් හදනවා; තියෙන file එකක් overwrite කරන්නේ නැහැ.
+   Stripe සහ SMTP settings server එකේම දාන්න. Secret keys chat එකේ හෝ shared ZIP එකේ දාන්න එපා.
+   npm run launch:config
+   Domain / HTTPS / Docker startup commands එම guide එකේ තියෙනවා.
+
+4. Admin dashboard → Launch setup:
+   Missing settings සහ provider configuration පෙන්වනවා.
+   Configured කියන්නේ live transaction එකක් test කරලා කියන එක නෙවෙයි.
+
+5. Google / Apple / Visual search / Suppliers:
+   INTEGRATIONS-v20.0.md කියවන්න. Accounts / permissions / provider credentials අවශ්‍යයි.
+   Supplier payment, cancellation සහ tracking import සම්පූර්ණයෙන් automatic නැහැ.
+
+6. Verification:
+   npm test
+   මේ release එකේ full local suite: 87 passed, 0 failed.
+   Validation details: VALIDATION-v20.1.md
+   Live acceptance steps: DEPLOYMENT-v20.1.md
+
+Live වැඩ අවසන් කිරීමට අවශ්‍ය: hosting provider/server access, domain/DNS access,
+production database, approved payment/email/OAuth/Vision/supplier accounts.
+මේවා නැතුව live වෙලා 100% complete කියලා තහවුරු කරන්න බැහැ.

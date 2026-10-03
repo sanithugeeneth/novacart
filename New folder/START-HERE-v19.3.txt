@@ -1,0 +1,33 @@
+NovaCart v19.3 — Support + Seller Application Forms
+
+All previous MFA, payment, seller access/checkout and signature design fixes
+are included. node_modules is included. Node.js 20+ and PostgreSQL are required.
+
+UPDATE YOUR EXISTING PROJECT
+
+1. Extract this ZIP into a new folder and keep your current project backup.
+2. Copy your existing private .env into the new folder.
+   Keep your existing database connection, admin MFA secret and payment settings.
+3. Start your existing PostgreSQL database.
+4. In the new project folder run:
+      npm run db:migrate
+      npm test
+      npm start
+5. Hard-refresh the browser with Ctrl+F5 so it loads the updated support.js.
+6. Sign in, open /support.html and create a ticket. It should show
+   "Ticket created." and appear in Your tickets.
+7. For a user without a seller profile, open /seller.html and submit the
+   application. It should show "Application submitted." and await approval.
+
+This release does not require a new database or changes to existing records.
+If upgrading directly from v19.0, the migration also includes the earlier
+MFA session change. Follow START-HERE-v19.1.txt for MFA/payment configuration.
+
+If dependencies need restoring: npm ci
+Run only the form checks: npm run forms:check
+Run all 32 regression tests: npm test
+
+Tests use an isolated local test database and do not write to your store's
+configured database or make live payment requests.
+
+Read FIXES-v19.3.md and VALIDATION-v19.3.md for details.

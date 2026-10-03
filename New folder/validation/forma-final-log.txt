@@ -1,0 +1,1 @@
+[{"width":1440,"overflow":0,"deals":[{"loaded":true,"width":110.390625},{"loaded":true,"width":110.390625},{"loaded":true,"width":110.390625},{"loaded":true,"width":110.390625}]},{"width":390,"overflow":0,"deals":[{"loaded":true,"width":149.5},{"loaded":true,"width":149.5},{"loaded":true,"width":149.5},{"loaded":true,"width":149.5}]}]

@@ -1,0 +1,23 @@
+✔ email OTP sends only after password verification and grants an MFA session only once (1932.951049ms)
+✔ email OTP is browser bound, expires and locks after five wrong attempts (1439.095048ms)
+✔ email resend cooldown and rotation invalidate previous challenge (1385.074053ms)
+✔ concurrent OTP requests send once and concurrent verification creates one session (1338.875148ms)
+✔ SMTP missing or failing never authenticates and does not expose secrets (2744.411957ms)
+✔ email mode prevents ordinary login bypass and readiness requires SMTP without requiring TOTP secret (1328.00891ms)
+✔ Amazon tracking sync reaches customer shipment without changing payment or another seller allocation (2023.553564ms)
+✔ provider mismatch and outage retain last tracking and use backoff instead of fake status (1566.983093ms)
+✔ cancellation is explicit, serialized, single-submit and only confirmed by later provider state (1467.030268ms)
+✔ unknown cancellation never retries automatically and shipped orders block cancellation (1451.52117ms)
+✔ AliExpress signed order query distinguishes supplier payment and tracking, without submitting payment (1449.995641ms)
+✔ AliExpress cancellation requires provider action and audited confirmation; no false API success (1409.66347ms)
+✔ read and cancellation controls enforce administrator access and CSRF (1399.050672ms)
+✔ scheduled tracking sync is opt-in, does not pay or forward orders, and honors due times (2634.350918ms)
+✔ provider probe does not import; scheduled stock refresh preserves retail price and reports failure (1322.101328ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15007.081786

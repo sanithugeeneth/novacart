@@ -1,0 +1,29 @@
+NovaCart v21.9 — Forma Motion Experience
+
+අලුතින් එකතු කළ දේවල්:
+• Hero text සහ campaign image entrance animations.
+• Scroll කරන විට section / product reveals.
+• Desktop product depth, image zoom සහ mouse movement effects.
+• Cart එකට add කළ විට product thumbnail flight සහ count feedback.
+• Wishlist, buttons, drawers, checkout, menu සහ product tabs සඳහා animations.
+• Footer එකේ Animations on/off control. Browser එකේ preference එක save වෙනවා.
+• Device reduced-motion setting එක respect කරනවා. Touch devices වල desktop effects නැහැ.
+
+ඉක්මනින් බලන්න (Node.js 22+):
+   npm.cmd run preview:ui
+Terminal එකේ දෙන local URL එක browser එකෙන් open කරන්න.
+මේක sample data preview එකක්. Real payments/emails යවන්නේ නැහැ.
+Preview එකට Docker හෝ external database එකක් අවශ්‍ය නැහැ.
+Video: preview/motion/Motion-Preview.mp4
+
+Update කරන විදිහ:
+1. Existing database සහ private settings backup කර තබාගන්න.
+2. Application සහ static files එකට update කර server restart කරන්න.
+3. Browser එකේ Ctrl + F5 ඔබන්න.
+4. v21.8 එකෙන් upgrade නම් මේ UI update එකට අලුත් database migration එකක් නැහැ.
+   පරණ versions සඳහා START-HERE-v21.8.txt අනුව migration කරන්න:
+   npm.cmd run db:migrate
+
+විස්තර: MOTION-EXPERIENCE-v21.9.md
+කලින් security/payment, supplier operations සහ email OTP fixes ඇතුළත්.
+Live server deployment එකක් මේ update එකෙන් කරලා නැහැ.

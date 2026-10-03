@@ -1,0 +1,30 @@
+✖ unpaid card orders cannot be processed, packed or shipped, including forged payment fields (2471.407654ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2731.707424
+
+✖ failing tests:
+
+test at tests/seller-fulfillment.test.js:37:1
+✖ unpaid card orders cannot be processed, packed or shipped, including forged payment fields (2471.407654ms)
+  AssertionError [ERR_ASSERTION]: {"ok":true}
+  
+  200 !== 409
+  
+      at deniedUnchanged (file:///workspace/scratch/b062a52460e0/NovaCart-v21.1-Seller-Payment-Guard/tests/seller-fulfillment.test.js:32:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/scratch/b062a52460e0/NovaCart-v21.1-Seller-Payment-Guard/tests/seller-fulfillment.test.js:40:18)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 409,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

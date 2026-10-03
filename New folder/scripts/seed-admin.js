@@ -1,0 +1,13 @@
+import 'dotenv/config';
+import crypto from 'node:crypto';
+import { Pool } from 'pg';
+import bcrypt from 'bcryptjs';
+const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+const email = String(process.env.ADMIN_EMAIL || '').trim().toLowerCase();
+const password = String(process.env.ADMIN_PASSWORD || '');
+if (!email || !password || password.length < 12 || !/[A-Za-z]/.test(password) || !/\d/.test(password) || !/[^A-Za-z0-9]/.test(password)) throw new Error('Set ADMIN_EMAIL and a strong ADMIN_PASSWORD (12+ chars, with letters, numbers and a symbol).');
+const hash = await bcrypt.hash(password, 12);
+const id = crypto.randomUUID();
+await pool.query(`insert into users(id,name,email,password_hash,email_verified,is_admin) values($1,$2,$3,$4,true,true) on conflict(email) do update set password_hash=excluded.password_hash,is_admin=true,email_verified=true,updated_at=now()`, [id, 'NovaCart Admin', email, hash]);
+console.log(`Admin account ready: ${email}`);
+await pool.end();

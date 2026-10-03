@@ -1,0 +1,35 @@
+NovaCart v21.3 — Refund පසු seller payout recovery
+
+කලින් payout කළ order එකක් refund වුණාම අලුත් payouts සියල්ල 409 වලින්
+නතර වීමේ ගැටලුව fix කරලා තියෙනවා.
+
+භාවිතය:
+1. Seller center → Your payouts → Refresh refund balance.
+2. Period dates තෝරා Generate payout ඔබන්න.
+3. Refund deduction සහ Net transfer වෙන වෙනම පෙන්වනවා.
+4. Earnings ප්‍රමාණවත් නැත්නම් ඉතිරි මුදල Carried forward ලෙස පෙන්වනවා.
+5. Admin → Payouts → Reconcile refunds → අලුත් net amount එක බලන්න.
+6. ඇත්තටම transfer කරපු මුදලේ reference එකෙන් පමණක් paid කරන්න.
+   මෙම UI එකෙන් bank transfer එකක් යවන්නේ නැහැ.
+
+IMPORTANT — මේ release එකට database migration එක අවශ්‍යයි:
+   Existing database එක backup කර පැරණි app එක නවත්වන්න.
+   අලුත් files දාලා existing database/config සමග:
+       npm run db:migrate
+   ඊට පස්සේ app එක start කරන්න.
+   Standard production/Docker startup එක migration එක ස්වයංක්‍රීයව run කරනවා.
+   Existing database සහ private settings මකා දමන්න එපා.
+
+Tests:
+   npm run payout-refunds:check
+   npm test
+   Local tests 120 passed; desktop/mobile payout workflow browser checks passed.
+
+Docker නැතුව local UI බලන්න (Node.js 22+):
+   npm.cmd run preview:ui
+   මෙය temporary sample data. Real payments/emails යවන්නේ නැහැ.
+
+වැඩි විස්තර: REFUND-PAYOUT-RECOVERY-v21.3.md
+Deploy setup: DEPLOYMENT-v20.1.md
+පැරණි START-HERE/versioned notes ඒ ඒ release වල historical උපදෙස් පමණයි.
+මෙම ZIP එක live server එකකට deploy කරලා නැහැ.

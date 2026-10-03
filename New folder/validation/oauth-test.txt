@@ -1,0 +1,14 @@
+✔ OAuth hides unconfigured providers and replaces placeholder endpoints with 503 (1824.5499ms)
+✔ Google uses PKCE, creates a verified account and binds a one-use state to its browser (1805.125575ms)
+✔ OAuth rejects wrong issuer, audience, nonce, expiry and invalid signatures (1526.994286ms)
+✔ existing emails require explicit linking; links require CSRF and cannot target admin accounts (1398.923437ms)
+✔ Apple signs its client secret and accepts a browser-bound form_post callback (1659.21676ms)
+✔ expired OAuth transactions and revoked linking sessions cannot sign in or connect an account (1277.166546ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9838.773587

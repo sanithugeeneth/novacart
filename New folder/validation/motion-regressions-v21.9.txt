@@ -1,0 +1,35 @@
+✔ API pagination reaches every active product with stable ordering and rejects bad pages (2618.590826ms)
+✔ the actual Load more button fetches beyond 48 and stops only at the end of the catalog (1053.127993ms)
+✔ search, brand and keyword matches include products outside the initial page (906.218431ms)
+✔ category pills and sorting use the full catalog, including a category absent from page one (121.273717ms)
+✔ a late old search response cannot replace the newer search or unlock its loading state (92.458386ms)
+✔ a failed next-page request keeps products and retries that same page (137.978846ms)
+✔ saved cart and wishlist products beyond page one retain their details across searches (368.687028ms)
+✔ sitemap product URL serves the complete styled product in the initial HTML (2712.294488ms)
+✔ metadata, canonical, offer and main image agree with the visible product selection (61.636258ms)
+✔ all page CSS, JavaScript, icon and local product media resolve from nested URLs (77.524849ms)
+✔ old product URLs redirect automatically to the canonical full page (22.293261ms)
+✔ missing and inactive products return styled 404s and inactive products stay out of the sitemap (37.832333ms)
+✔ out-of-stock variants produce matching availability and no-script controls stay disabled (26.350222ms)
+✔ product-controlled HTML and script delimiters are escaped in markup and bootstrap JSON (30.708935ms)
+✔ long and unicode slugs and legacy empty slugs resolve exactly as advertised in the sitemap (82.433258ms)
+✔ approved sellers use their existing login cookie for every seller read endpoint (2650.233157ms)
+✔ anonymous, invalid, revoked and expired sessions cannot access seller data (44.94437ms)
+✔ customers and pending, rejected or suspended sellers are denied with 403 (68.486996ms)
+✔ seller product create/edit requires CSRF and enforces user ownership (63.85939ms)
+✔ public seller catalogs resolve products using the owner user ID (11.610112ms)
+✔ mixed COD checkout assigns seller profiles and keeps order-item owner IDs (82.141895ms)
+✔ seller orders accept their owner updates and reject another seller or missing CSRF (47.121648ms)
+✔ seller card checkout still confirms payment through a signed Stripe webhook (43.252417ms)
+✔ unavailable or missing seller profiles reject checkout and roll back order and inventory (64.924691ms)
+✔ signature CSS and JS are served with correct MIME types and exact content (16.530038ms)
+✔ customer pages reference the signature assets and allow their Google Fonts stylesheet (22.732815ms)
+✔ serving signature assets does not expose server files or dependency sources (9.396979ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5942.662128

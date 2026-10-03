@@ -1,0 +1,44 @@
+PASS: Hero and motion assets load with 12 products and no desktop overflow.
+PASS: Desktop mouse drives bounded campaign image depth.
+PASS: Viewport reveals and mouse-aware product hover work.
+PASS: Successful cart update creates a thumbnail flight and cleans up temporary visuals.
+PASS: Wishlist heart, count and feedback agree after rerender.
+PASS: Animated bag retains focus trapping, Escape dismissal and focus return.
+PASS: Animated checkout completes an isolated sample COD order.
+PASS: Load more still loads additional catalog products.
+PASS: Server search finds products beyond the first 48.
+PASS: Canonical product page retains cart, wishlist and tab controls.
+PASS: Animations off cancels running effects and persists after reload.
+PASS: Device reduced-motion changes are respected immediately at runtime.
+PASS: 390px touch layout, mobile menu and cart work without desktop pointer effects.
+PASS: 320px phone layout has no horizontal overflow.
+PASS: Without JavaScript, hero and server-rendered product content stay visible.
+PASS: All 14 other account, workspace and information pages load the motion layer.
+PASS: No browser JavaScript errors or missing assets.
+{
+  "result": "passed",
+  "browser": "131.0.6778.0",
+  "checks": [
+    "Hero and motion assets load with 12 products and no desktop overflow.",
+    "Desktop mouse drives bounded campaign image depth.",
+    "Viewport reveals and mouse-aware product hover work.",
+    "Successful cart update creates a thumbnail flight and cleans up temporary visuals.",
+    "Wishlist heart, count and feedback agree after rerender.",
+    "Animated bag retains focus trapping, Escape dismissal and focus return.",
+    "Animated checkout completes an isolated sample COD order.",
+    "Load more still loads additional catalog products.",
+    "Server search finds products beyond the first 48.",
+    "Canonical product page retains cart, wishlist and tab controls.",
+    "Animations off cancels running effects and persists after reload.",
+    "Device reduced-motion changes are respected immediately at runtime.",
+    "390px touch layout, mobile menu and cart work without desktop pointer effects.",
+    "320px phone layout has no horizontal overflow.",
+    "Without JavaScript, hero and server-rendered product content stay visible.",
+    "All 14 other account, workspace and information pages load the motion layer.",
+    "No browser JavaScript errors or missing assets."
+  ],
+  "errors": [],
+  "missing": [],
+  "recordedFrames": 139,
+  "scope": "Isolated local preview database, simulated payments; no real charges, emails, provider calls or deployment."
+}

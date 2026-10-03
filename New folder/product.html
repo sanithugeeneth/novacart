@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product — NovaCart</title>
+<meta name="description" content="Product details, reviews, delivery and checkout on NovaCart.">
+<link rel="icon" href="/favicon.svg">
+
+
+<link rel="stylesheet" href="/styles.css">
+
+
+<link rel="stylesheet" href="/signature-ui.css">
+<link rel="stylesheet" href="/forma-ui.css"><link rel="stylesheet" href="/motion.css?v=21.9"></head>
+<body class="product-page" data-design="forma">
+<a class="skip-link" href="#main">Skip to content</a><header class="page-header"><div class="wrap"><a class="brand" href="/" aria-label="NovaCart home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 2v28M2 16h28M6.1 6.1l19.8 19.8M6.1 25.9 25.9 6.1" stroke="currentColor" stroke-width="4.5"></path></svg></span><span>NovaCart<span class="brand-dot">.</span></span></a><nav aria-label="Main navigation"><a class="active" href="/#shop">Discover</a><a class="" href="/account.html">My account</a><a class="" href="/orders.html">Orders</a><a class="" href="/seller.html">Seller center</a><a class="" href="/support.html">Support</a></nav><a class="header-bag" href="/?drawer=cart" aria-label="Open shopping bag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14l1 14H4L5 7Z"></path><path d="M8 8V6a4 4 0 0 1 8 0v2"></path></svg></a></div></header><main id="main"><noscript><p class="wrap product-js-notice">Product details are available below. Enable JavaScript to choose options and purchase.</p></noscript>
+<div class="wrap product-breadcrumb"><a href="/">Home</a><span>›</span><a id="crumbCat" href="/">Shop</a><span>›</span><b id="crumbTitle">Product</b></div>
+<section class="wrap product-hero-detail">
+  <div class="product-gallery-area">
+    <div class="product-gallery-grid">
+      <button class="gallery-thumb active" data-view="0"><img id="thumb0" alt="Product thumbnail"></button>
+      <button class="gallery-thumb" data-view="1"><img id="thumb1" alt="Product thumbnail"></button>
+      <button class="gallery-thumb" data-view="2"><img id="thumb2" alt="Product thumbnail"></button>
+      <button class="gallery-thumb" data-view="3"><img id="thumb3" alt="Product thumbnail"></button>
+    </div>
+    <div class="product-main-image-wrap">
+      <span id="detailBadge" class="product-detail-badge">BESTSELLER</span>
+      <button class="gallery-arrow prev" id="prevImage" aria-label="Previous product image">‹</button>
+      <img id="mainProductImage" class="product-main-image" alt="">
+      <button class="gallery-arrow next" id="nextImage" aria-label="Next product image">›</button>
+      <div class="image-counter" id="imageCounter">1 / 4</div>
+    </div>
+  </div>
+  <div class="product-buy-area">
+    <div class="product-mini-top"><span id="detailCat" class="detail-category">TECH</span><button id="wishBtn" aria-label="Save product to favourites" class="round-icon">♡</button></div>
+    <h1 id="detailTitle">Loading product…</h1>
+    <div class="detail-rating"><span id="detailStars">☆☆☆☆☆</span><strong id="detailRating">—</strong><a href="#reviews" id="detailReviews">Loading reviews</a><span class="rating-dot">•</span><span>Customer reviews</span></div>
+    <div class="detail-price-row"><strong id="detailPrice">—</strong><del id="detailOldPrice"></del><span id="detailDiscount" class="discount-pill"></span></div>
+    <p id="detailDescription" class="detail-description"></p>
+    <div class="buy-trust-strip"><div><span>✓</span><b>Product details</b></div><div><span>✓</span><b>Secure checkout</b></div><div><span>✓</span><b>Easy returns</b></div></div>
+    <div class="purchase-section">
+      <div class="option-title"><b>Your selection</b><span id="variantLabel">Standard</span></div>
+      <div class="variant-row" id="variantRow"></div>
+      <div class="option-title delivery-title"><b>Deliver to</b><button id="editAddress">Add address</button></div>
+      <div class="address-preview" id="addressPreview"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h12v13H2zm12 5h4l4 5v3h-8"></path><circle cx="6" cy="18" r="2"></circle><circle cx="18" cy="18" r="2"></circle></svg><div><b>Ready for your delivery address</b><small>Save an address at checkout for a faster purchase.</small></div><span>›</span></div>
+      <div class="stock-row"><span class="stock-dot"></span><b id="stockText">In stock</b><span id="stockDetail">Ready to dispatch</span></div>
+      <div class="purchase-actions"><div class="qty-stepper"><button id="qtyMinus" aria-label="Decrease quantity">−</button><b id="qtyValue">1</b><button id="qtyPlus" aria-label="Increase quantity">+</button></div><button class="primary-btn buy-now" id="buyNow">Buy now</button><button class="secondary-cart-btn" id="addToCart">Add to cart</button></div>
+      <div class="delivery-cards"><div><b>Standard delivery</b><span>Delivery options shown at checkout</span></div><div><b>Express available</b><span>Faster delivery at checkout</span></div></div>
+    </div>
+    <div class="seller-strip" id="sellerStrip"><div class="seller-avatar">N</div><div><span>SHOP WITH SUPPORT</span><b>NovaCart marketplace</b><small>Product &amp; order support</small></div><span class="seller-arrow">›</span></div>
+  </div>
+</section>
+<section class="wrap detail-bottom-grid">
+  <div>
+    <div class="detail-tabs" role="tablist" aria-label="Product information"><button class="active" data-tab="overview">Overview</button><button data-tab="specs">Specifications</button><button data-tab="shipping">Delivery &amp; returns</button><button data-tab="reviews">Reviews</button></div>
+    <div class="detail-panel active" id="tab-overview"><div class="overview-copy"><span class="kicker">WHY YOU'LL LOVE IT</span><h2>A closer look.</h2><p id="longCopy"></p></div><div class="feature-list"><div><span>01</span><b>Explore the details</b><p>Find descriptions, prices and availability together in one place.</p></div><div><span>02</span><b>Make it your own</b><p>Choose from the available product options before adding to your bag.</p></div><div><span>03</span><b>Stay in the loop</b><p>Find order updates and contact support from your NovaCart account.</p></div></div></div>
+    <div class="detail-panel" id="tab-specs"><div class="spec-grid" id="specGrid"></div></div>
+    <div class="detail-panel" id="tab-shipping"><div class="shipping-panel"><div><span>🚚</span><b>Dispatch</b><p>See delivery choices and shipping fees at checkout.</p></div><div><span>↻</span><b>Easy returns</b><p>Return-eligible items follow the return policy shown at checkout.</p></div><div><span>🛡</span><b>Buyer support</b><p>Get order support if your item arrives damaged or not as described.</p></div></div></div>
+    <div class="detail-panel" id="tab-reviews"><div id="reviews"></div></div>
+    <section class="review-section" id="reviews-section"><div class="review-headline"><div><span class="kicker">CUSTOMER REVIEWS</span><h2>From the people who tried it.</h2></div><div class="review-summary"><strong id="reviewScore">0.0</strong><span>☆☆☆☆☆</span><small id="reviewCount">0 verified reviews</small></div></div><div class="review-grid" id="reviewGrid"><div class="empty-reviews">Loading approved reviews…</div></div></section>
+  </div>
+  <aside class="sticky-side-card"><span class="kicker">ORDER WITH CONFIDENCE</span><h3>Good to know.</h3><div class="side-benefit"><span>✓</span><div><b>Secure payment</b><small>Card and cash-on-delivery options where available.</small></div></div><div class="side-benefit"><span>✓</span><div><b>Address saved at checkout</b><small>Store delivery details in your customer account.</small></div></div><div class="side-benefit"><span>✓</span><div><b>Track your order</b><small>Keep order status and delivery info in one place.</small></div></div><a class="ghost-btn wide" href="/login.html">Create an account →</a></aside>
+</section>
+<section class="wrap related-section"><div class="section-title"><div><span class="kicker">YOU MAY ALSO LIKE</span><h2>More worth discovering.</h2></div><a class="ghost-btn" href="/">Shop all →</a></div><div class="related-grid" id="relatedGrid"></div></section>
+</main>
+<footer class="simple-footer wrap"><span>© 2026 NovaCart</span><div><a href="/support.html">Need help?</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div></footer>
+<script src="/product.js"></script>
+
+
+<script src="/signature-ui.js"></script>
+
+<script src="/motion.js?v=21.9"></script></body></html>

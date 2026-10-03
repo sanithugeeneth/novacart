@@ -1,0 +1,23 @@
+✔ support form sends JSON and CSRF, saves its message and refreshes the ticket list (3769.793934ms)
+✔ support form accepts a real order reference and the ticket stays private to its owner (80.836699ms)
+✔ seller application sends all fields as JSON and saves a pending profile once (35.474126ms)
+✔ both forms retain entered data and display errors for missing required fields (32.002155ms)
+✔ both form submissions still enforce authentication and CSRF (55.56378ms)
+✔ seller product editor persists all fields, generated identifiers and audit history (3760.832483ms)
+✔ product and variant mutations enforce owner, approval and CSRF (80.727956ms)
+✔ invalid amounts, stock, images and visibility cannot alter the catalogue (116.864804ms)
+✔ checkout consumes stock and stale inventory or product revisions cannot overwrite it (120.558335ms)
+✔ variant creation, inventory, price and visibility edits reach checkout safely (91.912442ms)
+✔ stock and audit writes roll back together if audit storage fails (31.13655ms)
+✔ seller search and pagination include the full catalogue and maintain ownership (169.475917ms)
+✔ seller order controls receive only their items with delivery details, search and status filters (63.896477ms)
+✔ seller catalogue script is served as JavaScript, without exposing server services (14.813947ms)
+✔ supplier-linked stock cannot be manually overwritten but details remain editable (64.725854ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4948.715439

@@ -1,0 +1,47 @@
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:55433:5432"
+    volumes:
+      - novacart_pg:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: novacart
+      POSTGRES_USER: novacart
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-novacart}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U novacart -d novacart"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 5s
+
+  app:
+    build: .
+    init: true
+    env_file:
+      - path: .env
+        required: false
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: 3000
+      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL:-http://localhost:3000}
+      DATABASE_URL: postgres://novacart:${POSTGRES_PASSWORD:-novacart}@db:5432/novacart
+      BUSINESS_NAME: ${BUSINESS_NAME:-NovaCart}
+      BUSINESS_COUNTRY: ${BUSINESS_COUNTRY:-}
+      BUSINESS_ADDRESS: ${BUSINESS_ADDRESS:-}
+      SUPPORT_EMAIL: ${SUPPORT_EMAIL:-}
+      SUPPORT_HOURS: ${SUPPORT_HOURS:-}
+      PRIVACY_EMAIL: ${PRIVACY_EMAIL:-}
+      DEFAULT_LANGUAGE: ${DEFAULT_LANGUAGE:-en}
+      CURRENCY: ${CURRENCY:-USD}
+
+volumes:
+  novacart_pg:

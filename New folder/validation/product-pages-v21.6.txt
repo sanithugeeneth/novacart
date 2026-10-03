@@ -1,0 +1,16 @@
+✔ sitemap product URL serves the complete styled product in the initial HTML (4105.511576ms)
+✔ metadata, canonical, offer and main image agree with the visible product selection (91.760523ms)
+✔ all page CSS, JavaScript, icon and local product media resolve from nested URLs (175.959451ms)
+✔ old product URLs redirect automatically to the canonical full page (28.131768ms)
+✔ missing and inactive products return styled 404s and inactive products stay out of the sitemap (37.368374ms)
+✔ out-of-stock variants produce matching availability and no-script controls stay disabled (42.804889ms)
+✔ product-controlled HTML and script delimiters are escaped in markup and bootstrap JSON (59.282849ms)
+✔ long and unicode slugs and legacy empty slugs resolve exactly as advertised in the sitemap (165.155056ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6199.843973

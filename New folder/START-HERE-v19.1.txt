@@ -1,0 +1,47 @@
+NovaCart v19.1 — Admin MFA + Payment Confirmation Fix
+
+WINDOWS / EXISTING STORE UPDATE
+
+1. Extract the ZIP to a new folder. Keep your current folder and database backup.
+2. Copy your private .env into the new folder. Do not share or upload that file.
+3. In .env, set ADMIN_MFA_REQUIRED=true. Keep an existing ADMIN_MFA_SECRET if it is already enrolled in your authenticator.
+4. If there is no MFA secret, run: npm run mfa:setup
+   Add the printed setup key to your authenticator app. The script saves it locally.
+5. Start your existing PostgreSQL database / Docker Desktop.
+6. From this new folder run:
+      npm run db:migrate
+      npm run security-payment:check
+      npm start
+7. Sign in through the Admin tab with your password and the current authenticator code.
+   Sessions created before this update need a fresh admin sign-in.
+
+IF INSTALLING FOR THE FIRST TIME
+
+- Node.js 20+ and PostgreSQL are required.
+- node_modules is included. If dependencies need to be restored, run npm ci.
+- Copy .env.example to .env and enter your own admin email and a strong password.
+- The supplied Docker database listens on localhost port 55433:
+  DATABASE_URL=postgresql://novacart:YOUR_DATABASE_PASSWORD@localhost:55433/novacart
+  Use the same database password in POSTGRES_PASSWORD.
+- Run docker compose up -d db, then the commands above.
+
+PAYMENT CONFIGURATION
+
+Keep your existing STRIPE_SECRET_KEY and STRIPE_WEBHOOK_SECRET private.
+The webhook endpoint remains /api/stripe/webhook.
+Relevant events:
+  checkout.session.completed
+  checkout.session.async_payment_succeeded
+  checkout.session.expired
+  checkout.session.async_payment_failed
+  payment_intent.payment_failed
+  charge.refunded
+
+Use your merchant test environment to verify external event delivery before live deployment.
+Do not mark old unpaid orders paid without checking the provider payment record.
+
+LOCAL VALIDATION
+
+15 automated regression tests pass for the two requested fixes.
+Read FIXES-v19.1.md for the exact scope and testing limitations.
+The broader v19 marketplace has other previously reported issues outside this focused update.

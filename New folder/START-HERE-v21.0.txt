@@ -1,0 +1,22 @@
+NovaCart v21.0 — Forma UI
+
+අලුත් desktop / mobile UI design එක මේ ZIP එකේ තියෙනවා.
+Homepage, shop, product, login, account, support, seller සහ admin screens update කරලා තියෙනවා.
+
+1. ZIP එක extract කර project folder එක terminal එකෙන් open කරන්න.
+2. Node.js 22 හෝ ඊට ඉහළ version එකක් අවශ්‍යයි.
+3. Local preview: npm run preview:ui
+   Terminal එකේ පෙන්වන local URL එක browser එකෙන් open කරන්න.
+   මෙය sample products සහ temporary database එකක්. Real payments හෝ emails යවන්නේ නැහැ.
+   Preview login details terminal එකේ පෙන්වනවා. නවත්වන්න Ctrl+C.
+4. Dependencies නැති නම්: npm ci
+5. Tests: npm test
+
+Design notes: DESIGN-v21.0.md
+Screenshots: preview/forma/
+Validation: VALIDATION-v21.0.md
+Production setup: DEPLOYMENT-v20.1.md
+Provider setup: INTEGRATIONS-v20.0.md
+
+මේ ZIP එක live hosting එකකට deploy කරලා නැහැ.
+Existing store එක update කිරීමට පෙර database/private settings backup කර deployment guide එක කියවන්න.

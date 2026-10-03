@@ -1,0 +1,18 @@
+✔ Amazon tracking sync reaches customer shipment without changing payment or another seller allocation (1812.195412ms)
+✔ provider mismatch and outage retain last tracking and use backoff instead of fake status (1389.105345ms)
+✔ cancellation is explicit, serialized, single-submit and only confirmed by later provider state (1364.787203ms)
+✔ unknown cancellation never retries automatically and shipped orders block cancellation (1326.077226ms)
+✔ AliExpress signed order query distinguishes supplier payment and tracking, without submitting payment (1333.45514ms)
+✔ AliExpress cancellation requires provider action and audited confirmation; no false API success (1307.588774ms)
+✔ read and cancellation controls enforce administrator access and CSRF (1330.983294ms)
+✔ scheduled tracking sync is opt-in, does not pay or forward orders, and honors due times (2623.854208ms)
+✔ provider probe does not import; scheduled stock refresh preserves retail price and reports failure (1397.800427ms)
+✔ Amazon delivery requires matched package delivery evidence, not just fulfillment completion (1373.90242ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15515.666405

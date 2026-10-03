@@ -1,0 +1,55 @@
+✔ seller tracking and status reach both customer shipment and order-list APIs (3858.051082ms)
+✔ multi-seller shipments retain distinct tracking and report partial dispatch (60.745265ms)
+✔ mixed store and seller items keep store tracking separate and never claim premature complete dispatch (51.323378ms)
+✔ existing seller tracking is visible without rewriting historical rows or generating fake events (27.536011ms)
+✔ store-only tracking and existing administrator shipment events remain available (23.825103ms)
+✔ omitted tracking fields are preserved and explicit corrections are returned on the next read (65.508033ms)
+✔ customer shipment data requires the order owner and excludes seller financial/private records (55.913064ms)
+✔ unpaid shipping stays blocked and customer reads cannot turn it into paid or shipped (48.51302ms)
+✔ partially dispatched COD orders cannot be cancelled and restocked by the customer (71.421318ms)
+✔ terminal administrative status remains authoritative over historical shipment progress (37.176409ms)
+✔ production setup uses unique secrets, restrictive permissions, literal values and never overwrites credentials (5.673734ms)
+✔ configured test mode never claims live verification and partial enabled integrations fail the check without leaking secrets (3.033163ms)
+✔ configuration CLI works without database/provider access, returns failures and redacts private values (492.552785ms)
+✔ readiness is admin-only, never exposes secrets, and private deployment files are not publicly served (3836.441761ms)
+NovaCart v21.8 running at https://shop.local.test
+✔ production startup validates its injected configuration and does not create demo inventory (1638.025625ms)
+✔ SMTP transport enforces TLS and finite connection and delivery timeouts (0.80097ms)
+✔ customer login cannot create an admin session even with a valid admin password (3762.261042ms)
+✔ missing and malformed OTPs reject admin login (20.873964ms)
+✔ valid password and current OTP create an MFA-verified admin session (23.858734ms)
+✔ legacy password-only admin sessions fail closed when MFA is required (7.479192ms)
+✔ customers cannot access administrator APIs (9.410191ms)
+✔ missing MFA secret rejects admin login instead of bypassing verification (11.314278ms)
+✔ valid raw Stripe signature confirms payment and exposes paid status to the customer (74.039962ms)
+✔ forged Stripe signature cannot update an order (16.122423ms)
+✔ duplicate signed events do not duplicate emails, points or paid history (31.585751ms)
+Payment notification failed 61743020-7a0e-4293-9c82-6d6c9e42b954 Payment details do not match the order.
+Payment notification failed 94cf5011-c0d6-4266-9bb3-6fca1bf2939c Payment details do not match the order.
+Payment notification failed decedb30-2fd6-48f5-af5b-bd4c51d35c85 Payment details do not match the order.
+✔ wrong payment amount, currency or reference cannot mark an order paid (62.062957ms)
+✔ coupon checkout total exactly matches the amount verified in the webhook (34.845797ms)
+✔ a declined card can be retried successfully without releasing reserved stock (37.402221ms)
+✔ an unpaid completion waits for async payment success (30.474782ms)
+✔ late notification recovery confirms a provider-paid order before releasing inventory (21.019308ms)
+Payment reconciliation needs retry NC-MUNJHWD3-59A7DA Simulated provider outage
+✔ unpaid expiry releases stock once, while a provider outage preserves the reservation (26.075744ms)
+✔ supplier operations require administrator authorization and CSRF; config never exposes provider secrets (3801.20913ms)
+✔ Amazon import and stock sync preserve retail price, original mappings and local reservations (1571.38035ms)
+✔ supplier checkout rejects COD, stale stock and unsupported destination before creating an order (1374.2862ms)
+✔ unpaid orders cannot forward; a paid order is reviewed and submitted exactly once, including concurrent clicks (1338.81717ms)
+✔ changed addresses, expired previews and refunds invalidate fulfillment approval (1383.317542ms)
+✔ unknown Amazon acceptance is locked and reconciled by its stable provider reference without another POST (1364.542861ms)
+✔ AliExpress uses signed product and order requests, exact SKU attributes and separate supplier-payment status (1308.591511ms)
+✔ AliExpress currency mismatches reject import and unknown acceptance never retries automatically (1424.804636ms)
+✔ AliExpress TOP mode uses its documented HMAC protocol and newly imported products can stay drafts (1293.156412ms)
+✔ manual supplier resolution requires a settled request, provider-check confirmation and recorded evidence (1372.752591ms)
+✔ a provider-confirmed rejection requires a new preview and retains a durable resolution audit (1365.072324ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 42
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 17901.837378

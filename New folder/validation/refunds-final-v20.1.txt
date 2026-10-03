@@ -1,0 +1,15 @@
+✔ partial/full refunds reserve cents once, preserve request keys and reject changed retries (8274.581494ms)
+✔ refund endpoints reject unauthorized users, missing CSRF/key and unpaid orders before provider calls (100.845488ms)
+✔ a lost provider response reserves the amount and retries the same provider refund without another transfer (72.808589ms)
+✔ concurrent clicks hold a durable reservation before calling the provider (94.825471ms)
+✔ unknown requests older than the provider idempotency window reconcile without a new creation (92.680151ms)
+✔ signed refund updates reconcile pending requests and stale events cannot undo current provider state (85.405698ms)
+✔ failed refunds release the reserved amount only after current signed provider confirmation (127.433601ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9595.324587

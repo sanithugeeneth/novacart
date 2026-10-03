@@ -1,0 +1,21 @@
+✔ admin workspace restores a server-approved session, renders charts and waits for media clicks (4586.088499ms)
+✔ anonymous and customer sessions never enter the admin workspace (139.509245ms)
+✔ formatter uses explicit currency codes, preserves values and never guesses USD (4933.330199ms)
+✔ admin and seller product prices use the configured currency even for old USD-default catalogue rows (60.115658ms)
+✔ current-currency revenue, analytics and customer value exclude historical foreign amounts (43.651349ms)
+✔ historical order currencies remain unchanged in both operational screens (35.171537ms)
+✔ seller payout summary includes only store-currency balances while history keeps both currencies (29.85519ms)
+✔ shared formatter is served and static admin placeholders never claim dollars before configuration loads (13.67423ms)
+✔ support form sends JSON and CSRF, saves its message and refreshes the ticket list (4897.271068ms)
+✔ support form accepts a real order reference and the ticket stays private to its owner (101.479529ms)
+✔ seller application sends all fields as JSON and saves a pending profile once (46.096463ms)
+✔ both forms retain entered data and display errors for missing required fields (41.941888ms)
+✔ both form submissions still enforce authentication and CSRF (70.665761ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5672.171412
