@@ -39,7 +39,8 @@
     "product-pages:check": "node --test tests/product-pages.test.js",
     "mfa:email": "node scripts/setup-email-otp.js",
     "email-otp:check": "node --test tests/admin-email-otp.test.js",
-    "supplier-operations:check": "node --test tests/supplier-operations.test.js tests/suppliers.test.js"
+    "supplier-operations:check": "node --test tests/supplier-operations.test.js tests/suppliers.test.js",
+    "test:ci": "node --test --test-concurrency=1 tests/*.test.js"
   },
   "engines": {
     "node": ">=22"

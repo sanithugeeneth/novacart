@@ -79,8 +79,10 @@ Open `http://localhost:3000`; use the Admin tab on the login page for admin auth
 From `New folder`:
 
 ```bash
-node --test --test-concurrency=1 tests/*.test.js
+npm run test:ci
 ```
+
+The [NovaCart tests workflow](https://github.com/sanithugeeneth/novacart/actions/workflows/test.yml) runs this command on pushes and pull requests to `main`, using Node.js 24 and isolated fixture databases. It needs no production secrets or live provider accounts. Open a workflow run to inspect the actual result; adding the workflow alone does not mean it passed.
 
 For a running PostgreSQL-backed server, in a second terminal:
 
