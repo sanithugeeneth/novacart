@@ -34,7 +34,7 @@ External payment, email, OAuth and supplier features need their own provider con
 | Backend | Node.js 22+ (24 recommended), Express 5 |
 | Database | PostgreSQL 17 in the supplied Docker configuration |
 | Tests / local preview | Node test runner, PGlite and jsdom |
-| Optional integrations | Stripe, SMTP, Google/Apple OAuth and supplier adapters |
+| Optional integrations | Stripe, SMTP/Brevo email, Google/Apple OAuth and supplier adapters |
 
 ## Quick local demonstration
 
@@ -72,7 +72,7 @@ npm start
 
 The MFA setup command prints a private authenticator enrollment key on first setup. Enroll it in your authenticator and keep it out of screenshots and submissions. Startup creates the configured admin if it does not already exist. Existing accounts are preserved by default.
 
-Open `http://localhost:3000`; use the Admin tab on the login page for admin authentication. For SMTP-backed admin email OTP, follow [Email OTP setup](New%20folder/EMAIL-OTP-SETUP.md).
+Open `http://localhost:3000`; use the Admin tab on the login page for admin authentication. For provider-backed admin email OTP, follow [Email OTP setup](New%20folder/EMAIL-OTP-SETUP.md).
 
 ## Verification
 
@@ -92,11 +92,13 @@ Automated test success does not prove live email delivery, live payment processi
 
 ## Deployment
 
+For the assessment, follow [free deployment setup](FREE-DEPLOYMENT.md): Render Free + external Neon Free + Brevo HTTPS email. The opt-in [render.free.yaml](render.free.yaml) creates no paid database. Provider credentials and live acceptance remain pending.
+
 The [root render.yaml](render.yaml) points Render to `New folder`, uses `npm ci --omit=dev`, starts `npm run start:prod`, and checks `/api/ready`.
 
 The template provisions **paid** web/database resources if applied. Review the provider's current total before creating resources. Automatic deployment is off. There is no approved hosting purchase or completed deployment recorded here.
 
-Production startup requires HTTPS, database access, business/contact settings, a strong private admin password, admin MFA, SMTP and Stripe configuration. Stripe test keys can support an assessment deployment, but no real customer charges should be accepted for the demo. Never use fake credentials to make readiness checks appear complete.
+Production startup requires HTTPS, database access, business/contact settings, a strong private admin password, admin MFA, a configured email provider and Stripe configuration. Stripe test keys can support an assessment deployment, but no real customer charges should be accepted for the demo. Never use fake credentials to make readiness checks appear complete.
 
 See [deployment instructions](New%20folder/DEPLOYMENT-v20.1.md). Keep passwords, database URLs and provider keys in private hosting settings, not in this repository.
 

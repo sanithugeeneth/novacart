@@ -1,0 +1,99 @@
+# Assessment template: Render Free web service + separately configured Neon Free database.
+# Select this file explicitly; render.yaml provisions paid resources.
+# No database or persistent disk is provisioned here. Read FREE-DEPLOYMENT.md first.
+services:
+- type: web
+  name: novacart-assessment
+  runtime: node
+  rootDir: New folder
+  autoDeployTrigger: 'off'
+  plan: free
+  region: singapore
+  buildCommand: npm ci --omit=dev
+  startCommand: npm run start:prod
+  healthCheckPath: /api/ready
+  envVars:
+  - key: NODE_VERSION
+    value: '24'
+  - key: ENFORCE_ORIGIN_CHECK
+    value: 'true'
+  - key: SEED_DEMO_PRODUCTS
+    value: 'false'
+  - key: ADMIN_MFA_METHOD
+    value: totp
+  - key: NODE_ENV
+    value: production
+  - key: PORT
+    value: '10000'
+  - key: DATABASE_URL
+    sync: false
+  - key: PUBLIC_BASE_URL
+    sync: false
+  - key: BUSINESS_NAME
+    value: NovaCart
+  - key: BUSINESS_COUNTRY
+    sync: false
+  - key: BUSINESS_ADDRESS
+    sync: false
+  - key: SUPPORT_EMAIL
+    sync: false
+  - key: PRIVACY_EMAIL
+    sync: false
+  - key: SUPPORT_HOURS
+    sync: false
+  - key: DEFAULT_LANGUAGE
+    value: en
+  - key: CURRENCY
+    value: USD
+  - key: SESSION_DAYS
+    value: '30'
+  - key: SESSION_IDLE_MINUTES
+    value: '1440'
+  - key: ADMIN_EMAIL
+    sync: false
+  - key: ADMIN_PASSWORD
+    sync: false
+  - key: ADMIN_MFA_REQUIRED
+    value: 'true'
+  - key: ADMIN_MFA_SECRET
+    sync: false
+  - key: STRIPE_SECRET_KEY
+    sync: false
+  - key: STRIPE_WEBHOOK_SECRET
+    sync: false
+  - key: MAIL_FROM
+    sync: false
+  - key: TAX_RATE
+    sync: false
+  - key: STANDARD_SHIPPING_RATE
+    sync: false
+  - key: FREE_SHIPPING_THRESHOLD
+    sync: false
+  - key: EXPRESS_SHIPPING_RATE
+    sync: false
+  - key: REQUIRE_EMAIL_VERIFICATION
+    value: 'true'
+  - key: RETURNS_DAYS
+    sync: false
+  - key: ORDER_RETURN_WINDOW_DAYS
+    sync: false
+  - key: ENABLE_OAUTH_GOOGLE
+    value: 'false'
+  - key: ENABLE_OAUTH_APPLE
+    value: 'false'
+  - key: DB_WAIT_TRIES
+    value: '60'
+  - key: DB_WAIT_DELAY_MS
+    value: '2000'
+  - key: TRUST_PROXY
+    value: '1'
+  - key: REMEMBER_DAYS
+    value: '1'
+  - key: METRICS_TOKEN
+    generateValue: true
+  - key: MAIL_PROVIDER
+    value: brevo
+  - key: BREVO_API_KEY
+    sync: false
+  - key: DB_POOL_MAX
+    value: '5'

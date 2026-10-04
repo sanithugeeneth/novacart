@@ -24,6 +24,7 @@ These links point to source guides containing direct code links. This is one ful
 **Live URL: pending. No live URL has been verified.**
 
 - [x] Root Render deployment template prepared for the existing source folder.
+- [x] Separate free assessment template and [setup guide](FREE-DEPLOYMENT.md) prepared.
 - [ ] Hosting login completed and deployment plan selected.
 - [ ] Any required hosting charges approved before purchase.
 - [ ] PostgreSQL and private environment settings configured.
