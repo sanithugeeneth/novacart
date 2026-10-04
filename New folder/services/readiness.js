@@ -1,4 +1,5 @@
 import crypto from 'node:crypto';
+import {mailProvider,mailRequiredKeys} from './mailer.js';
 const enabled=v=>String(v||'').toLowerCase()==='true';
 const placeholder=v=>/CHANGE[-_ ]|YOUR[-_ ]|example\.com/i.test(String(v||''));
 const email=v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v||''));
@@ -37,12 +38,17 @@ export function configurationReport(env) {
   const emailOtp=env.ADMIN_MFA_METHOD==='email';
   if(!['totp','email'].includes(env.ADMIN_MFA_METHOD||'totp'))core.issues.push('ADMIN_MFA_METHOD must be totp or email.');
   if(emailOtp&&env.ADMIN_MFA_REQUIRED!=='true')core.issues.push('Email OTP requires ADMIN_MFA_REQUIRED=true.');
-  const smtp=group('email','Transactional email',prod||emailOtp||Boolean(env.SMTP_HOST||env.SMTP_USER||env.SMTP_PASS),['SMTP_HOST','SMTP_USER','SMTP_PASS','MAIL_FROM'],prod);
-  if(smtp.enabled){
-    const port=Number(env.SMTP_PORT||587);if(!Number.isInteger(port)||port<1||port>65535)smtp.issues.push('SMTP_PORT must be a valid port.');
-    const from=String(env.MAIL_FROM||'').match(/<([^<>]+)>/)?.[1]||env.MAIL_FROM;if(!email(from))smtp.issues.push('MAIL_FROM must contain a valid sender email.');
-    if(prod&&env.SMTP_REQUIRE_TLS==='false')smtp.issues.push('SMTP_REQUIRE_TLS must remain enabled in production.');
-    smtp.warnings.push('SMTP authentication alone does not verify inbox delivery or domain authentication.');
+  const provider=mailProvider(env);
+  const mail=group('email','Transactional email',prod||emailOtp||provider!=='smtp'||Boolean(env.SMTP_HOST||env.SMTP_USER||env.SMTP_PASS||env.BREVO_API_KEY),mailRequiredKeys(env),prod||emailOtp);
+  mail.provider=provider;
+  if(!['smtp','brevo'].includes(provider))mail.issues.push('MAIL_PROVIDER must be smtp or brevo.');
+  if(mail.enabled){
+    const from=String(env.MAIL_FROM||'').match(/<([^<>]+)>/)?.[1]||env.MAIL_FROM;if(!email(from)||/[\r\n]/.test(String(env.MAIL_FROM||'')))mail.issues.push('MAIL_FROM must contain a valid sender email.');
+    if(provider==='smtp'){
+      const port=Number(env.SMTP_PORT||587);if(!Number.isInteger(port)||port<1||port>65535)mail.issues.push('SMTP_PORT must be a valid port.');
+      if(prod&&env.SMTP_REQUIRE_TLS==='false')mail.issues.push('SMTP_REQUIRE_TLS must remain enabled in production.');
+    }
+    mail.warnings.push('Provider authentication alone does not verify sender approval, inbox delivery or domain authentication.');
   }
   const google=group('google','Google sign-in',enabled(env.ENABLE_OAUTH_GOOGLE),['OAUTH_GOOGLE_CLIENT_ID','OAUTH_GOOGLE_CLIENT_SECRET']);
   const apple=group('apple','Apple sign-in',enabled(env.ENABLE_OAUTH_APPLE),['OAUTH_APPLE_CLIENT_ID','OAUTH_APPLE_TEAM_ID','OAUTH_APPLE_KEY_ID','OAUTH_APPLE_PRIVATE_KEY']);

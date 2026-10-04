@@ -2,9 +2,8 @@ import fs from 'node:fs';
 import dotenv from 'dotenv';
 import {Pool} from 'pg';
 import Stripe from 'stripe';
-import nodemailer from 'nodemailer';
 import {configurationReport,databaseReport} from '../services/readiness.js';
-import {mailConfig} from '../services/mail-config.js';
+import {createMailer} from '../services/mailer.js';
 const args=process.argv.slice(2),at=args.indexOf('--env');let env={...process.env};
 try{
   const file=at>=0?args[at+1]:'.env';if(at>=0&&!file)throw new Error();
@@ -24,7 +23,7 @@ if(args.includes('--connections')){
     let transport;
     try{
       if(id==='stripe')await new Stripe(env.STRIPE_SECRET_KEY,{timeout:10000,maxNetworkRetries:0}).accounts.retrieve();
-      else{transport=nodemailer.createTransport(mailConfig(env));await transport.verify();}
+      else{transport=createMailer(env);await transport.verify();}
       report.connections[id]={status:'authenticated',functionalTestRequired:true};
     }catch{report.connections[id]={status:'failed',reason:'Provider authentication or connectivity failed. Check the private server configuration.'};}
     finally{transport?.close();}

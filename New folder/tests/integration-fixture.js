@@ -8,7 +8,7 @@ export const json=data=>new Response(JSON.stringify(data),{status:200,headers:{'
 export async function integrationFixture(env={},providerFetch=async()=>{throw new Error('Unexpected external call');},options={}) {
   const pool=await database(),server=createServer().listen(0,'127.0.0.1');await new Promise(r=>server.once('listening',r));
   const base='http://127.0.0.1:'+server.address().port;
-  const app=createApplication({pool,stripe:null,mailer:options.mailer,env:{NODE_ENV:'development',PUBLIC_BASE_URL:base,...env},providerFetch});server.on('request',app.app);
+  const app=createApplication({pool,stripe:null,mailer:options.mailer,mailFetch:options.mailFetch,env:{NODE_ENV:'development',PUBLIC_BASE_URL:base,...env},providerFetch});server.on('request',app.app);
   const password='LocalIntegration123!';const hash=await bcrypt.hash(password,4);
   async function account(email='buyer@local.test',admin=false) {
     const id=crypto.randomUUID(),token=crypto.randomBytes(32).toString('hex'),csrf=crypto.randomBytes(20).toString('hex');

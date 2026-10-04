@@ -6,7 +6,7 @@ export function adminEmailOtp({pool,mailer,env,isProd}){
  return async(req,res,user)=>{
   res.set('Cache-Control','no-store');const otp=String(req.body?.otp||'').trim();
   if(!otp||req.body?.resend===true){
-   if(!mailer||!env.MAIL_FROM){res.status(503).json({error:'Configure SMTP and MAIL_FROM, then restart to send admin email codes.'});return false;}
+   if(!mailer||!env.MAIL_FROM){res.status(503).json({error:'Configure your email provider and MAIL_FROM, then restart to send admin email codes.'});return false;}
    const token=crypto.randomBytes(32).toString('base64url'),code=String(crypto.randomInt(1000000)).padStart(6,'0'),hash=digest(token),c=await pool.connect();
    try{await c.query('begin');await c.query('select id from users where id=$1 for update',[user.id]);
     if((await c.query("select user_id from admin_email_challenges where user_id=$1 and sent_at>now()-interval '60 seconds'",[user.id])).rowCount){await c.query('rollback');res.set('Retry-After','60').status(429).json({error:'Wait 60 seconds before requesting another code.'});return false;}
@@ -15,7 +15,7 @@ export function adminEmailOtp({pool,mailer,env,isProd}){
    try{const r=await mailer.sendMail({from:env.MAIL_FROM,to:user.email,subject:'Your NovaCart admin sign-in code',text:`Your NovaCart admin sign-in code is ${code}. Expires in 10 minutes. Use once. Do not share this code.`,html:`<p>NovaCart admin sign-in code:</p><h1>${code}</h1><p>Expires in 10 minutes. Use once. Do not share this code.</p>`});
     if(r?.rejected?.length||Array.isArray(r?.accepted)&&!r.accepted.length)throw Error();
     if(!(await pool.query('update admin_email_challenges set delivered=true where user_id=$1 and token_hash=$2 and consumed=false returning user_id',[user.id,hash])).rowCount)throw Error();
-   }catch{await pool.query('update admin_email_challenges set consumed=true where user_id=$1 and token_hash=$2',[user.id,hash]);res.status(503).json({error:'Email delivery failed. Check SMTP settings and retry after 60 seconds.'});return false;}
+   }catch{await pool.query('update admin_email_challenges set consumed=true where user_id=$1 and token_hash=$2',[user.id,hash]);res.status(503).json({error:'Email delivery failed. Check email provider settings and retry after 60 seconds.'});return false;}
    res.cookie(cookie,token,options);const [local,domain]=user.email.split('@');res.status(202).json({requiresOtp:true,method:'email',destination:local[0]+'***@'+domain,expiresIn:600,resendAfter:60});return false;
   }
   const token=String(req.cookies?.[cookie]||'');if(!/^[A-Za-z0-9_-]{43}$/.test(token)){res.status(401).json({error:'Request a new email code in this browser.'});return false;}

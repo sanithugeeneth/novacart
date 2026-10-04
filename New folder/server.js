@@ -19,8 +19,7 @@ import { fileURLToPath } from 'node:url';
 import bcrypt from 'bcryptjs';
 import { Pool } from 'pg';
 import Stripe from 'stripe';
-import nodemailer from 'nodemailer';
-import {mailConfig} from './services/mail-config.js';
+import {createMailer} from './services/mailer.js';
 import {configurationReport,databaseReport} from './services/readiness.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -83,10 +82,7 @@ const pool = deps.pool || new Pool({
 });
 const stripe = deps.stripe !== undefined ? deps.stripe : (env.STRIPE_SECRET_KEY ? new Stripe(env.STRIPE_SECRET_KEY,{timeout:15000,maxNetworkRetries:1}) : null);
 
-let mailer = deps.mailer || null;
-if (!mailer && env.SMTP_HOST && env.SMTP_USER && env.SMTP_PASS) {
-  mailer = nodemailer.createTransport(mailConfig(env));
-}
+const mailer = deps.mailer || createMailer(env, {fetchImpl: deps.mailFetch});
 
 const app = express();
 // Webhook JSON must remain raw until its Stripe signature has been verified.
