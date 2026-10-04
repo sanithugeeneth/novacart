@@ -47,7 +47,7 @@ npm ci
 npm run preview:ui
 ```
 
-Private-repository access is required to clone. Open the exact local URL printed in the terminal. The preview prints temporary customer, seller and admin account details.
+This repository is public; no invitation is needed to view or clone it. Open the exact local URL printed in the terminal. The preview prints temporary customer, seller and admin account details.
 
 This preview uses an isolated temporary database and sample products. It simulates provider behavior; it does not send real payments or emails. Use cash on delivery for a sample checkout. Data resets when the process restarts. Stop it with Ctrl+C. **Do not expose this test-fixture server to the internet.**
 
@@ -102,6 +102,6 @@ See [deployment instructions](New%20folder/DEPLOYMENT-v20.1.md). Keep passwords,
 
 ## Review access and submission
 
-This repository is private. The reviewer must accept an invitation before they can view its files. Do not assume a shared URL alone grants access.
+This repository is public. Reviewers can view the source without an invitation. The [commit history](https://github.com/sanithugeeneth/novacart/commits/main/) preserves the original commits and records subsequent changes.
 
 Follow [SUBMISSION.md](SUBMISSION.md) to record the live URL and acceptance results when they exist. Approval and certificate issuance are controlled by the reviewing organization.

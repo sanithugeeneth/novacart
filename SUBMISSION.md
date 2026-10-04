@@ -14,8 +14,8 @@ These links point to source guides containing direct code links. This is one ful
 
 - [x] Frontend and backend source identified.
 - [x] Local setup and testing commands documented.
-- [ ] Reviewing team's GitHub username(s) confirmed.
-- [ ] Reviewer access granted and invitation accepted.
+- [x] Repository is public; reviewers can view and clone without an invitation.
+- [x] Existing commit history preserved for assessment.
 - [ ] Submission form URL supplied.
 - [ ] Source links submitted.
 
@@ -40,11 +40,10 @@ Record each live check with its date and result after performing it. Keep a fail
 
 ## Remaining information
 
-- Reviewer GitHub identity and the access needed.
 - Official submission form URL and its required fields.
 - Hosting account access and plan choice.
 - Private settings entered directly in the hosting dashboard.
 
-Never place an admin password, MFA seed, session, database connection secret or API key in this document or a public submission field. Repository invitations and form submission have not been performed.
+Never place an admin password, MFA seed, session, database connection secret or API key in this document or a public submission field. Public source access is available; form submission has not been performed.
 
 The institution decides whether the project meets its requirements and when a certificate is issued.
